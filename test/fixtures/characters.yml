@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  birthdate: MyString
+  age: 1
+  hometown: MyString
+  parents: MyString
+  other: MyText
+
+two:
+  name: MyString
+  birthdate: MyString
+  age: 1
+  hometown: MyString
+  parents: MyString
+  other: MyText

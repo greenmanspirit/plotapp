@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @story.title %>
+</p>
+
+<p>
+<% @story.plotpoints.each do |pp| %>
+<%= link_to pp.summary pp %>
+<% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
+<%= link_to 'Add PP', :controller => "plotpoints", :action => "new", :id => @story.id %>

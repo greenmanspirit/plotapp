@@ -1,0 +1,27 @@
+<h1>Listing plotpoints</h1>
+
+<table>
+  <tr>
+    <th>Summary</th>
+    <th>Details</th>
+    <th>Story</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @plotpoints.each do |plotpoint| %>
+  <tr>
+    <td><%= plotpoint.summary %></td>
+    <td><%= plotpoint.details %></td>
+    <td><%= plotpoint.story %></td>
+    <td><%= link_to 'Show', plotpoint %></td>
+    <td><%= link_to 'Edit', edit_plotpoint_path(plotpoint) %></td>
+    <td><%= link_to 'Destroy', plotpoint, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Plotpoint', new_plotpoint_path %>

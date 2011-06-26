@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Summary:</b>
+  <%= @plotpoint.summary %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @plotpoint.details %>
+</p>
+
+<p>
+  <b>Story:</b>
+  <%= @plotpoint.story %>
+</p>
+
+
+<%= link_to 'Edit', edit_plotpoint_path(@plotpoint) %> |
+<%= link_to 'Back', plotpoints_path %>

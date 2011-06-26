@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plotter</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<% if author_signed_in? then %>
+<%= link_to 'Edit', edit_author_registration_path %>
+<%= link_to 'Sign Out', destroy_author_session_path %>
+<% else %>
+<%= link_to 'Register', new_author_registration_path %>
+<%= link_to 'Sign In', new_author_session_path %>
+<% end %>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+
+<%= yield %>
+
+</body>
+</html>
