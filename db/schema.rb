@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110626223659) do
+ActiveRecord::Schema.define(:version => 20110627113434) do
 
   create_table "authors", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20110626223659) do
     t.boolean  "private"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "author_id"
   end
 
   create_table "vices", :force => true do |t|

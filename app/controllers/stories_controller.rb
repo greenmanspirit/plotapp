@@ -40,7 +40,7 @@ class StoriesController < ApplicationController
   # POST /stories
   # POST /stories.xml
   def create
-    @story = Story.new(params[:story])
+    @story = current_author.stories.new(params[:story])
 
     respond_to do |format|
       if @story.save
