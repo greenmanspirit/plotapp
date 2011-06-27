@@ -1,4 +1,4 @@
-<%= form_for(@plotpoint) do |f| %>
+<%= form_for([@story, @plotpoint]) do |f| %>
   <% if @plotpoint.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@plotpoint.errors.count, "error") %> prohibited this plotpoint from being saved:</h2>
@@ -18,7 +18,6 @@
   <div class="field">
     <%= f.label :details %><br />
     <%= f.text_area :details %>
-    <%= f.hidden_field :story, :story %>
   </div>
   <div class="actions">
     <%= f.submit %>

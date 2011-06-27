@@ -1,4 +1,4 @@
-<%= form_for(@setting) do |f| %>
+<%= form_for([@story, @setting]) do |f| %>
   <% if @setting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
@@ -14,10 +14,6 @@
   <div class="field">
     <%= f.label :summary %><br />
     <%= f.text_area :summary %>
-  </div>
-  <div class="field">
-    <%= f.label :story %><br />
-    <%= f.text_field :story %>
   </div>
   <div class="actions">
     <%= f.submit %>

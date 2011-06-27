@@ -24,6 +24,7 @@ class SettingsController < ApplicationController
   # GET /settings/new
   # GET /settings/new.xml
   def new
+  	@story = Story.find(params[:story_id])
     @setting = Setting.new
 
     respond_to do |format|
@@ -40,7 +41,9 @@ class SettingsController < ApplicationController
   # POST /settings
   # POST /settings.xml
   def create
-    @setting = Setting.new(params[:setting])
+  	@story = Story.find(params[:story_id])
+    @setting = Setting.new(params[:setting])	
+	@setting.story = @story
 
     respond_to do |format|
       if @setting.save

@@ -24,7 +24,8 @@ class CharactersController < ApplicationController
   # GET /characters/new
   # GET /characters/new.xml
   def new
-    @character = Character.new
+  	@story = Story.find(params[:story_id])
+    @character = @story.characters.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +41,8 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.xml
   def create
-    @character = Character.new(params[:character])
+  	@story = Story.find(params[:story_id])
+    @character = @story.characters.new(params[:character])
 
     respond_to do |format|
       if @character.save

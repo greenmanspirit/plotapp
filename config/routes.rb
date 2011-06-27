@@ -1,13 +1,17 @@
 PlotApp::Application.routes.draw do
   devise_for :authors
 
-  resources :settings
+  resources :stories do
+  	resources :plotpoints, :shallow => true 
+	resources :characters, :shallow => true
+	resources :settings, :shallow => true
+  end
 
-  resources :characters
+  #resources :plotpoints
 
-  resources :plotpoints
+  #resources :characters
 
-  resources :stories
+  #resources :settings
 
   get "home/index"
 

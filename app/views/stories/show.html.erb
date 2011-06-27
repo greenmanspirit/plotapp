@@ -7,11 +7,27 @@
 
 <p>
 <% @story.plotpoints.each do |pp| %>
-<%= link_to pp.summary pp %>
+<%= link_to pp.summary, pp %>
+<% end %>
+<%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>
+</p>
+
+<p>
+<% @story.characters.each do |pp| %>
+<%= link_to pp.name, pp %>
+<% end %>
+<%= link_to 'New Character', new_story_character_path(@story) %>
+</p>
+
+<p>
+<% if !@story.setting then %>
+<%= link_to 'Create Setting', new_story_setting_path(@story) %>
+<% else %>
+<%= link_to 'setting', @story.setting %>
 <% end %>
 </p>
 
 
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Back', stories_path %>
-<%= link_to 'Add PP', :controller => "plotpoints", :action => "new", :id => @story.id %>
+<%= link_to 'Add PP', new_story_plotpoint_path(@story) %>

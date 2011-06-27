@@ -24,8 +24,8 @@ class PlotpointsController < ApplicationController
   # GET /plotpoints/new
   # GET /plotpoints/new.xml
   def new
+  	@story = Story.find(params[:story_id])
     @plotpoint = Plotpoint.new
-    @plotpoint.story = Story.find(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,7 +41,8 @@ class PlotpointsController < ApplicationController
   # POST /plotpoints
   # POST /plotpoints.xml
   def create
-    @plotpoint = Plotpoint.new(params[:plotpoint])
+  	@story = Story.find(params[:story_id])
+    @plotpoint = @story.plotpoints.new(params[:plotpoint])
 
     respond_to do |format|
       if @plotpoint.save
