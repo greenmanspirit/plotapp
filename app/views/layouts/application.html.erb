@@ -7,6 +7,10 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<p>
+<%= link_to 'Home', root_path %>
 <% if author_signed_in? then %>
 <%= link_to 'Edit', edit_author_registration_path %>
 <%= link_to 'Sign Out', destroy_author_session_path %>
@@ -14,9 +18,7 @@
 <%= link_to 'Register', new_author_registration_path %>
 <%= link_to 'Sign In', new_author_session_path %>
 <% end %>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
+</p>
 
 <%= yield %>
 

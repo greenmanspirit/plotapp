@@ -5,4 +5,8 @@ class Story < ActiveRecord::Base
 	belongs_to :author
 
 	validates_presence_of :title
+
+	def self.publicStories
+		where(["private = ?", false]).all
+	end
 end

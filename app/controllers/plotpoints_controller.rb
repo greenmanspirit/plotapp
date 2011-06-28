@@ -82,4 +82,11 @@ class PlotpointsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def sort
+    params[:plotpoints].each_with_index do |id, index|
+      Plotpoint.update_all(['position=?', index+1], ['id=?', id])
+    end
+    render :nothing => true
+  end
 end

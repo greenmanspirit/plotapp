@@ -1,0 +1,60 @@
+body {
+  background-color: #BBD2C2; }
+
+.plotpointbox {
+  background-image: url("../images/desk.jpg");
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-color: #000;
+  border-style: solid;
+  border-width: 1px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto; }
+
+#foo {
+  display: block;
+  position: relative;
+  height: 200;
+  width: 100%;
+  overflow: auto; }
+
+#plotpoints {
+  /*	display:		block;
+  	height:			150;
+  	width:			15000px;
+  	padding:		15px 0 0 15px;
+  	margin:			0;
+  	list-style:		none;*/
+  width: 90%;
+  margin: 0px;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.plotpoint {
+  display: block;
+  float: left;
+  background-color: #ffffff;
+  width: 200px;
+  height: 150px;
+  margin: 5px;
+  list-style: none;
+  overflow: hidden; }
+
+.plotpointsummary {
+  border-bottom: 2px	solid	red;
+  width: 190px;
+  display: block;
+  padding: 5px;
+  padding-bottom: 0px; }
+
+.plotpointdetails {
+  padding: 5px;
+  height: 100px;
+  overflow: hidden; }
+
+.plotpointlinks {
+  float: right;
+  margin-right: 5px; }

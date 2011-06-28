@@ -31,3 +31,5 @@ gem 'sqlite3'
 # end
 
 gem 'devise'
+gem 'sass'
+gem 'haml'

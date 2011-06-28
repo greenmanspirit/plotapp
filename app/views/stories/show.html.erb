@@ -5,13 +5,7 @@
   <%= @story.title %>
 </p>
 
-<p>
-<% @story.plotpoints.each do |pp| %>
-<%= link_to pp.summary, pp %>
-<% end %>
-<%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>
-</p>
-
+<%= render 'ppbox', {:plotpoints => @story.plotpoints} %>
 <p>
 <% @story.characters.each do |pp| %>
 <%= link_to pp.name, pp %>

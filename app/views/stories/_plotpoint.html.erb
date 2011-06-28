@@ -1,0 +1,12 @@
+<%= content_tag_for :li, point do %>
+	<div class="plotpointsummary">
+		<%= point.summary %>
+	</div>
+	<div class="plotpointdetails">
+		<%= point.details %>
+	</div>
+	<div class="plotpointlinks">
+		<%= link_to 'view', point %>
+		<%= link_to 'edit', edit_plotpoint_path(point) %>
+	</div>
+<% end %>

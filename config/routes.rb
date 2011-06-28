@@ -2,7 +2,11 @@ PlotApp::Application.routes.draw do
   devise_for :authors
 
   resources :stories do
-  	resources :plotpoints, :shallow => true 
+  	resources :plotpoints, :shallow => true do
+		collection do
+			post 'sort'
+		end
+	end
 	resources :characters, :shallow => true
 	resources :settings, :shallow => true
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627113434) do
+ActiveRecord::Schema.define(:version => 20110628165641) do
 
   create_table "authors", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20110627113434) do
     t.integer  "story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "settings", :force => true do |t|

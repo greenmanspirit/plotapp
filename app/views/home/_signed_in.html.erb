@@ -1,4 +1,4 @@
 <% current_author.stories.each do |story| %>
-<%= story.title %>
+<%= link_to story.title, story %>
 <% end %>
 <%= link_to "New Story", new_story_path %>
