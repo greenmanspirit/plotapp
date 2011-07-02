@@ -1,27 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<div id="storyTitle">
   <%= @story.title %>
-</p>
+</div>
+<div id="notebookHolder">
+<div id="notebooks">
+<div id="plotNotebook" class="notebook">
+	<%= link_to "Plot Points", story_plotpoints_path(@story) %>
+</div>
+<div id="charactersNotebook" class="notebook">
+	<%= link_to "Characters", story_characters_path(@story) %>
+</div>
 
-<%= render 'ppbox', {:plotpoints => @story.plotpoints} %>
-<p>
-<% @story.characters.each do |pp| %>
-<%= link_to pp.name, pp %>
-<% end %>
-<%= link_to 'New Character', new_story_character_path(@story) %>
-</p>
-
-<p>
-<% if !@story.setting then %>
-<%= link_to 'Create Setting', new_story_setting_path(@story) %>
-<% else %>
-<%= link_to 'setting', @story.setting %>
-<% end %>
-</p>
+<div id="settingNotebook" class="notebook">
+	<% if @story.setting == nil then %>
+	<%= link_to "Setting", new_story_setting_path(@story) %>
+	<% else %>
+	<%= link_to "Setting", @story.setting %>
+	<% end %>
+</div>
+</div>
+</div>
 
 
 <%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
-<%= link_to 'Add PP', new_story_plotpoint_path(@story) %>

@@ -1,20 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Summary:</b>
-  <%= @plotpoint.summary %>
-</p>
-
-<p>
-  <b>Details:</b>
-  <%= @plotpoint.details %>
-</p>
-
-<p>
-  <b>Story:</b>
-  <%= @plotpoint.story %>
-</p>
-
-
+<div id="indexCard">
+<div id="indexCardTop">
+  <%= sanitize @plotpoint.summary, :tags => ''%>
+</div>
+<div id="indexCardBottom">
+  <%= simple_format(sanitize(@plotpoint.details, :tags => '')) %>
+</div>
+</div>
 <%= link_to 'Edit', edit_plotpoint_path(@plotpoint) %> |
-<%= link_to 'Back', story_path(@plotpoint.story) %>
+<%= link_to 'Back', plotpoints_path %>

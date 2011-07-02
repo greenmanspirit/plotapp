@@ -1,0 +1,27 @@
+<%= form_for([@setting, @feature]) do |f| %>
+  <% if @feature.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feature.errors.count, "error") %> prohibited this plotpoint from being saved:</h2>
+
+      <ul>
+      <% @feature.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="indexCard">
+  <div id="indexCardTop">
+    <%= f.label :summary %><br />
+    <%= f.text_field :summary %>
+  </div>
+  <div id="indexCardBottom">
+    <%= f.label :detail %><br />
+    <%= f.text_area :detail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+<% end %>

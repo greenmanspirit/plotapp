@@ -2,25 +2,31 @@
 <html>
 <head>
   <title>Plotter</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag "layout.css" %>
+  <%= javascript_include_tag "jquery-1.6.2.js", :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <p>
-<%= link_to 'Home', root_path %>
-<% if author_signed_in? then %>
-<%= link_to 'Edit', edit_author_registration_path %>
-<%= link_to 'Sign Out', destroy_author_session_path %>
-<% else %>
-<%= link_to 'Register', new_author_registration_path %>
-<%= link_to 'Sign In', new_author_session_path %>
-<% end %>
 </p>
 
+<div id="desk">
+<%= link_to 'Home', root_path, :class => 'logo'%>
+<% if author_signed_in? then %>
+<%= link_to 'Edit', edit_author_registration_path, :class => 'userControlLink' %>
+<%= link_to 'Sign Out', destroy_author_session_path, :class => 'userControlLink' %>
+<% else %>
+<%= link_to 'Register', new_author_registration_path, :class => 'userControlLink'%>
+<%= link_to 'Sign In', new_author_session_path, :class => 'userControlLink' %>
+<% end %>
+<div class="clear"></div>
 <%= yield %>
-
+</div>
+</div>
+<div id="legal">
+&copy; 2011 Adam Hobaugh
+</div>
 </body>
 </html>

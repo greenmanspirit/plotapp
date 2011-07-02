@@ -1,4 +1,39 @@
-<% current_author.stories.each do |story| %>
+<div id="authorStories">
+<div id="authorPublic">
+<h3>Your Publc Stories</h3>
+<ul>
+<% @authorPublicStories.each do |story| %>
+<li>
 <%= link_to story.title, story %>
+</li>
 <% end %>
+</ul>
+</div>
+<div id="authorPrivate">
+<h3>Your Private Stories</h3>
+<ul>
+<% @authorPrivateStories.each do |story| %>
+<li>
+<%= link_to story.title, story %>
+</li>
+<% end %>
+</ul>
+</div>
+</div>
+<div id="allPublic">
+<h3>Sample of Public Stories</h3>
+<table>
+<tr>
+<th>Title</th>
+<th>Author</th>
+</tr>
+<% @allPublicStories.each do |story| %>
+<tr>
+<td><%= link_to story.title, story %></td>
+<td><%= link_to story.author.username, view_author_profile_path(story.author) %></td>
+</tr>
+<% end %>
+</table>
+</div>
+
 <%= link_to "New Story", new_story_path %>

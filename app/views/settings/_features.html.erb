@@ -1,0 +1,11 @@
+<% first = true %>
+<% @features.each do |feature| %>
+<% if first then %>
+<li class="settingIndexCard">
+<% first = false %>
+<% else %>
+<li class="settingIndexCardShadow">
+<% end %>
+<div class="settingIndexCardTop"><%= link_to feature.summary, feature %></div>
+</li>
+<% end %>

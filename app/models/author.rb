@@ -6,5 +6,14 @@ class Author < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :bio
+
+  has_attached_file :photo, :styles => {:profile => "300x300>"}
+  validates_attachment_size :photo, :less_than => 5.megabytes
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
+  def update_with_password(params={})
+  	params.delete(:current_password)
+	self.update_without_password(params)
+  end
 end

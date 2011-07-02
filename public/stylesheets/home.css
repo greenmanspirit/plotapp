@@ -1,0 +1,20 @@
+#authorStories {
+  overflow: auto; }
+
+#authorPublic, #authorPrivate {
+  width: 37.5%;
+  float: left;
+  background-color: #fff; }
+
+#authorPublic {
+  margin-left: 10%;
+  margin-right: 2.5%; }
+
+#authorPrivate {
+  margin-left: 2.5%;
+  margin-right: 10%; }
+
+#allPublic {
+  background-color: #fff;
+  margin-left: 10%;
+  margin-right: 10%; }

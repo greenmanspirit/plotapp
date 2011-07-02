@@ -2,7 +2,8 @@ class PlotpointsController < ApplicationController
   # GET /plotpoints
   # GET /plotpoints.xml
   def index
-    @plotpoints = Plotpoint.all
+  	@story = Story.find(params["story_id"])
+    @plotpoints = @story.plotpoints.all(:order => "position")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,10 +76,11 @@ class PlotpointsController < ApplicationController
   # DELETE /plotpoints/1.xml
   def destroy
     @plotpoint = Plotpoint.find(params[:id])
+	@story = @plotpoint.story;
     @plotpoint.destroy
 
     respond_to do |format|
-      format.html { redirect_to(plotpoints_url) }
+      format.html { redirect_to(story_plotpoints_path(@story)) }
       format.xml  { head :ok }
     end
   end

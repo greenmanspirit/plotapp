@@ -1,0 +1,24 @@
+#storyTitle {
+  width: 50%;
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.5em; }
+
+#notebookHolder {
+  text-align: center; }
+
+#notebooks {
+  display: inline-block;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto; }
+
+.notebook {
+  float: left;
+  background-color: #ccc;
+  text-align: center;
+  vertical-align: middle;
+  height: 15em;
+  width: 10em;
+  margin: 2em; }

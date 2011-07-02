@@ -1,27 +1,19 @@
-<h1>Listing plotpoints</h1>
-
-<table>
-  <tr>
-    <th>Summary</th>
-    <th>Details</th>
-    <th>Story</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @plotpoints.each do |plotpoint| %>
-  <tr>
-    <td><%= plotpoint.summary %></td>
-    <td><%= plotpoint.details %></td>
-    <td><%= plotpoint.story %></td>
-    <td><%= link_to 'Show', plotpoint %></td>
-    <td><%= link_to 'Edit', edit_plotpoint_path(plotpoint) %></td>
-    <td><%= link_to 'Destroy', plotpoint, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<ul id="plotpoints" %>
+<% @plotpoints.each do |point| %>
+<%= content_tag_for :li, point do %>
+	<div class="smallIndexCardTop">
+		<%= sanitize(point.summary, :tags => '') %>
+	</div>
+	<div class="smallIndexCardBottom">
+		<%= simple_format(sanitize(point.details, :tags => '')) %>
+	</div>
+	<div class="smallIndexCardLinks">
+		<%= link_to 'view', point %>
+		<%= link_to 'edit', edit_plotpoint_path(point) %>
+		<%= link_to 'delete', point, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Plotpoint', new_plotpoint_path %>
+<% end %>
+</ul>
+<%= sortable_element("plotpoints", {:url=> sort_story_plotpoints_path(@story), :constraint => false, :handle => "smallIndexCardTop"}) %>
+<%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>

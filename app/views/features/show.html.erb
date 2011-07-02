@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<div id="indexCard">
+<div id="indexCardTop">
+  <%= sanitize @feature.summary, :tags => ''%>
+</div>
+<div id="indexCardBottom">
+  <%= simple_format(sanitize(@feature.detail, :tags => '')) %>
+</div>
+</div>
+<%= link_to 'Edit', edit_feature_path(@plotpoint) %> |
+<%= link_to 'Back', @feature.setting %>

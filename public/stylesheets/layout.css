@@ -1,60 +1,200 @@
-body {
-  background-color: #BBD2C2; }
-
-.plotpointbox {
-  background-image: url("../images/desk.jpg");
-  border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-color: #000;
-  border-style: solid;
-  border-width: 1px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto; }
-
-#foo {
-  display: block;
-  position: relative;
-  height: 200;
-  width: 100%;
-  overflow: auto; }
-
 #plotpoints {
-  /*	display:		block;
-  	height:			150;
-  	width:			15000px;
-  	padding:		15px 0 0 15px;
-  	margin:			0;
-  	list-style:		none;*/
   width: 90%;
   margin: 0px;
   padding: 0px;
   margin-left: auto;
+  margin-right: auto;
+  list-style: none; }
+
+#indexCard {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 70%;
+  background-color: #ffffff;
+  padding: 5px; }
+
+#indexCardTop {
+  border-bottom: 2px solid red; }
+
+#indexCardBottom {
+  min-height: 12em; }
+
+.smallIndexCard, .plotpoint {
+  width: 14em;
+  height: 10em;
+  padding: 5px;
+  margin: 5px;
+  background-color: #ffffff;
+  float: left; }
+
+.smallIndexCardTop {
+  border-bottom: 2px solid red;
+  height: 1em;
+  overflow: hidden;
+  cursor: move; }
+
+.smallIndexCardBottom {
+  height: 8em;
+  overflow: hidden; }
+
+.smallIndexCardLinks {
+  height: 1em;
+  text-align: right; }
+
+#storyTitle {
+  width: 50%;
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2.5em; }
+
+#notebookHolder {
+  text-align: center; }
+
+#notebooks {
+  display: inline-block;
+  overflow: auto;
+  margin-left: auto;
   margin-right: auto; }
 
-.plotpoint {
-  display: block;
+.notebook {
   float: left;
-  background-color: #ffffff;
-  width: 200px;
-  height: 150px;
-  margin: 5px;
-  list-style: none;
-  overflow: hidden; }
+  background-color: #ccc;
+  text-align: center;
+  vertical-align: middle;
+  height: 15em;
+  width: 10em;
+  margin: 2em; }
 
-.plotpointsummary {
-  border-bottom: 2px	solid	red;
-  width: 190px;
+#profilePhoto {
+  height: 300px;
+  width: 300px;
+  background-color: #fff;
+  float: left; }
+
+#profileUsername {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 2.5em;
+  float: left;
+  height: 300px;
+  width: 400px;
+  margin-left: 10px;
+  background-color: #ddd; }
+
+.middle {
+  height: 100%; }
+
+#authorStories {
+  overflow: auto; }
+
+#authorPublic, #authorPrivate {
+  width: 37.5%;
+  float: left;
+  background-color: #fff; }
+
+#authorPublic {
+  margin-left: 10%;
+  margin-right: 2.5%; }
+
+#authorPrivate {
+  margin-left: 2.5%;
+  margin-right: 10%; }
+
+#allPublic {
+  background-color: #fff;
+  margin-left: 10%;
+  margin-right: 10%; }
+
+.settingIndexCardTop {
+  border-bottom: 2px solid red;
+  height: 1em;
+  overflow: hidden;
+  margin-bottom: 4px; }
+
+.settingIndexCard, .settingIndexCardShadow {
   display: block;
-  padding: 5px;
-  padding-bottom: 0px; }
+  background-color: #fff;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  overflow: auto; }
 
-.plotpointdetails {
-  padding: 5px;
-  height: 100px;
-  overflow: hidden; }
+#settingIndexCards {
+  float: left;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+  margin-left: 2.5%;
+  margin-right: 5%;
+  list-style: none;
+  width: 27.5%; }
 
-.plotpointlinks {
+#settingSummary {
+  width: 56.5%;
+  float: left;
+  background-color: #fff;
+  margin-right: 2.5%;
+  margin-left: 5%;
+  padding: 5px; }
+
+.settingIndexCardShadow {
+  box-shadow: 1px -2px 2px #888888;
+  -moz-box-shadow: 1px -2px 2px #888888;
+  -webkit-box-shadow: 1px -2px 2px #888888;
+  border-top: 1px solid #555; }
+
+body {
+  background-color: #EAF7FB; }
+
+textarea {
+  width: 100%;
+  border: none; }
+
+input[type=text] {
+  width: 100%;
+  border: none; }
+
+#desk {
+  background-image: url("../images/desk.jpg");
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 0 0 10px #999999;
+  -moz-box-shadow: 0 0 10px #999999;
+  -webkit-box-shadow: 0 0 10px #999999;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 3px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto; }
+
+#legal {
+  width: 20em;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 1em;
+  font-size: .75em;
+  color: #555; }
+
+.userControlLink {
+  background-color: #D73E68;
   float: right;
-  margin-right: 5px; }
+  margin: 0;
+  padding: 0;
+  margin-right: 10px; }
+
+.logo {
+  display: block;
+  background-color: #000;
+  height: 100px;
+  width: 300px;
+  float: left; }
+
+.clear {
+  clear: both; }

@@ -1,5 +1,7 @@
 PlotApp::Application.routes.draw do
-  devise_for :authors
+  devise_for :authors, :controllers => { :author => "author" } do
+  	get "profile/:id", :to => "authors#profile", :as => "view_author_profile"
+  end
 
   resources :stories do
   	resources :plotpoints, :shallow => true do
@@ -8,7 +10,9 @@ PlotApp::Application.routes.draw do
 		end
 	end
 	resources :characters, :shallow => true
-	resources :settings, :shallow => true
+	resources :settings, :shallow => true do
+		resources :features
+	end
   end
 
   #resources :plotpoints

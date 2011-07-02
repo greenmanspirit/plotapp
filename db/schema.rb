@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110628165641) do
+ActiveRecord::Schema.define(:version => 20110630135337) do
 
   create_table "authors", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(:version => 20110628165641) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.text     "bio"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "authors", ["confirmation_token"], :name => "index_authors_on_confirmation_token", :unique => true
@@ -58,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110628165641) do
     t.integer  "setting_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "summary"
   end
 
   create_table "habits", :force => true do |t|

@@ -1,0 +1,53 @@
+#plotpoints{
+	width:				90%;
+	margin:				0px;
+	padding:			0px;
+	margin-left:		auto;
+	margin-right:		auto;
+	list-style:			none;
+}
+
+#indexCard {
+	margin-right:		auto;
+	margin-left:		auto;
+	margin-top:			20px;
+	margin-bottom:		20px;
+	width:				70%;
+	background-color:	#ffffff;
+	padding:			5px;
+}
+
+#indexCardTop{
+	border-bottom:		2px solid red;
+}
+
+#indexCardBottom{
+	min-height:			12em;
+}
+
+.smallIndexCard, .plotpoint{
+	width:				14em;
+	height:				10em;
+	padding:			5px;
+	margin:				5px;
+	background-color:	#ffffff;
+	float:				left;
+}
+
+.smallIndexCardTop{
+	border-bottom:		2px solid red;
+	height:				1em;
+	overflow:			hidden;
+	cursor:				move;
+}
+
+.smallIndexCardBottom{
+	height:				8em;
+	overflow:			hidden;
+}
+
+.smallIndexCardLinks{
+	height:				1em;
+	text-align:			right;
+}
+

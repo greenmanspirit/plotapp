@@ -1,11 +1,7 @@
-<div class="plotpointbox">
-<div id="foo">
 <ul id="plotpoints" %>
 <% plotpoints.all(:order=>'position').each do |point| %>
 <%= render 'plotpoint', {:point => point} %>
 <% end %>
 </ul>
-</div>
-</div>
 <%= sortable_element("plotpoints", {:url=> sort_story_plotpoints_path(@story), :constraint => false, :handle => "plotpointsummary"}) %>
 <%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>

@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Summary:</b>
-  <%= @setting.summary %>
-</p>
-
-<p>
-  <b>Story:</b>
-  <%= @setting.story %>
-</p>
-
+<div id="settingSummary">  <%= @setting.summary %></div>
+<div id="Paginator">
+<%= paginate @features, :remote => true%>
+</div>
+<ul id="settingIndexCards">
+<%= render 'features' %>
+</ul>
+<%= link_to 'New Feature', new_setting_feature_path(@setting) %>
 
 <%= link_to 'Edit', edit_setting_path(@setting) %> |
