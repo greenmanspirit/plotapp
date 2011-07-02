@@ -4,7 +4,7 @@ PlotApp::Application.routes.draw do
   end
 
   resources :stories do
-  	resources :plotpoints, :shallow => true do
+  	resources :plotpoints, :shallow => true do 
 		collection do
 			post 'sort'
 		end
@@ -15,14 +15,8 @@ PlotApp::Application.routes.draw do
 	end
   end
 
-  #resources :plotpoints
-
-  #resources :characters
-
-  #resources :settings
-
   get "home/index"
-
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

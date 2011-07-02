@@ -86,7 +86,7 @@ class PlotpointsController < ApplicationController
   end
 
   def sort
-    params[:plotpoints].each_with_index do |id, index|
+    params[:plotpoint].each_with_index do |id, index|
       Plotpoint.update_all(['position=?', index+1], ['id=?', id])
     end
     render :nothing => true
