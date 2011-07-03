@@ -1,6 +1,7 @@
 PlotApp::Application.routes.draw do
   devise_for :authors, :controllers => { :author => "author" } do
   	get "profile/:id", :to => "authors#profile", :as => "view_author_profile"
+	get "authors", :to => "authors#index", :as => "authors"
   end
 
   resources :stories do
