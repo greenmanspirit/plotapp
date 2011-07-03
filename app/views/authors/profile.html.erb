@@ -1,7 +1,7 @@
 <table id="profile">
 <tr>
 <td id="profilePhoto">
-<%= image_tag @author.photo.url %>
+<%= image_tag @author.photo.url(:profile) %>
 </td>
 <td>
 <span id="profileUsername"><%= sanitize(@author.username, :tags=>'') %></span>
