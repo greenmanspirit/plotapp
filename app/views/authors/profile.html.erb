@@ -1,6 +1,14 @@
-<div id="profilePhoto">
-
-</div>
-<div id="profileUsername">
-<p class="midde"><%= @author.username %></p>
-</div>
+<table id="profile">
+<tr>
+<td id="profilePhoto">
+<%= image_tag @author.photo.url(:profile) %>
+</td>
+<td id="profileUsername">
+<%= @author.username %>
+</td>
+</tr>
+<tr>
+<td> <%= @author.bio %> </td>
+<td> stories </td>
+</tr>
+</table>

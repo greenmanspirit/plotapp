@@ -1,19 +1,13 @@
 #profilePhoto{
-	height:				300px;
-	width:				300px;
-	background-color:	#fff;
-	float:				left;
+	height:				200px;
+	width:				200px;
 }
 #profileUsername{
-	display:			table-cell;
-	vertical-align:		middle;
-	font-size:			2.5em;
-	float:				left;
-	height:				300px;
-	width:				400px;
-	margin-left:		10px;
-	background-color:	#ddd;
+	font-size:			2em;
 }
-.middle{
-	height:		100%;
+#profile{
+	width:				80%;
+	margin-left:		auto;
+	margin-right:		auto;
+	background-color:	#fff;
 }

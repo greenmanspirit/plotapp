@@ -1,11 +1,28 @@
+<ul id="settingIndexCards">
 <% first = true %>
+<% count = 1 %>
 <% @features.each do |feature| %>
-<% if first then %>
-<li class="settingIndexCard">
-<% first = false %>
-<% else %>
-<li class="settingIndexCardShadow">
+	<% if count == @features.length then %>
+		<% topClass = "lastSettingIndexCard" %>
+	<% else %>
+		<% if first then %>
+			<% topClass = "settingIndexCardTop" %>
+			<% first = false %>
+		<% else %>
+			<% topClass = "settingIndexCardTopShadow" %>
+		<% end %>
+		<% count = count + 1 %>
+	<% end %>
+	<div class="<%= topClass %>"><span class="test"><%= feature.summary%></span></div>
+	<div class="settingIndexCardBottomWrapper">
+		<div class="settingIndexCardBottom">
+			<p><%= feature.detail%></p>
+		</div>
+		<div class="settingIndexCardLinks">
+			<%= link_to 'view', feature %>
+			<%= link_to 'edit', edit_feature_path(feature) %>
+			<%= link_to 'delete', feature, :confirm => 'Are you sure?', :method => :delete %>
+		</div>
+	</div>
 <% end %>
-<div class="settingIndexCardTop"><%= link_to feature.summary, feature %></div>
-</li>
-<% end %>
+</ul>

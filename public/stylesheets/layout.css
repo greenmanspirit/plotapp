@@ -19,7 +19,7 @@
   border-bottom: 2px solid red; }
 
 #indexCardBottom {
-  min-height: 12em; }
+  min-height: 11em; }
 
 .smallIndexCard, .plotpoint {
   width: 14em;
@@ -38,6 +38,10 @@
 .smallIndexCardBottom {
   height: 8em;
   overflow: hidden; }
+  .smallIndexCardBottom p {
+    margin: 0;
+    padding: 0;
+    margin: 0; }
 
 .smallIndexCardLinks {
   height: 1em;
@@ -69,23 +73,17 @@
   margin: 2em; }
 
 #profilePhoto {
-  height: 300px;
-  width: 300px;
-  background-color: #fff;
-  float: left; }
+  height: 200px;
+  width: 200px; }
 
 #profileUsername {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 2.5em;
-  float: left;
-  height: 300px;
-  width: 400px;
-  margin-left: 10px;
-  background-color: #ddd; }
+  font-size: 2em; }
 
-.middle {
-  height: 100%; }
+#profile {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff; }
 
 #authorStories {
   overflow: auto; }
@@ -108,19 +106,34 @@
   margin-left: 10%;
   margin-right: 10%; }
 
-.settingIndexCardTop {
-  border-bottom: 2px solid red;
-  height: 1em;
-  overflow: hidden;
-  margin-bottom: 4px; }
-
-.settingIndexCard, .settingIndexCardShadow {
+.settingIndexCardTop, .settingIndexCardTopShadow, .lastSettingIndexCard {
   display: block;
   background-color: #fff;
   padding-top: 5px;
   padding-right: 5px;
   padding-left: 5px;
-  overflow: auto; }
+  margin-bottom: 4px; }
+
+.test {
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid red;
+  height: 1em;
+  overflow: hidden; }
+
+.settingIndexCardBottom {
+  padding-bottom: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  height: 5em; }
+  .settingIndexCardBottom p {
+    margin: 0;
+    padding: 0; }
+
+.settingIndexCardLinks {
+  height: 1em;
+  text-align: right;
+  padding-bottom: 4px; }
 
 #settingIndexCards {
   float: left;
@@ -130,7 +143,8 @@
   margin-left: 2.5%;
   margin-right: 5%;
   list-style: none;
-  width: 27.5%; }
+  width: 27.5%;
+  background-color: #fff; }
 
 #settingSummary {
   width: 56.5%;
@@ -138,12 +152,16 @@
   background-color: #fff;
   margin-right: 2.5%;
   margin-left: 5%;
-  padding: 5px; }
+  padding: 5px;
+  margin-bottom: 5%; }
 
-.settingIndexCardShadow {
-  box-shadow: 1px -2px 2px #888888;
-  -moz-box-shadow: 1px -2px 2px #888888;
-  -webkit-box-shadow: 1px -2px 2px #888888;
+#settingIndexCardsWrap {
+  margin-bottom: 5%; }
+
+.settingIndexCardTopShadow, .lastSettingIndexCard {
+  box-shadow: 0px -2px 2px #888888;
+  -moz-box-shadow: 0px -2px 2px #888888;
+  -webkit-box-shadow: 0px -2px 2px #888888;
   border-top: 1px solid #555; }
 
 body {

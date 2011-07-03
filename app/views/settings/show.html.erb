@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<div id="settingSummary">  <%= @setting.summary %></div>
+<div id="settingSummary">  <%= simple_format(sanitize(@setting.summary, :tags => '')) %>
+<p><%= link_to 'Edit', edit_setting_path(@setting) %></p></div>
 <div id="paginator">
 <%= paginate @features, :remote => true%>
 </div>
-<ul id="settingIndexCards">
+<div id="settingIndexCardsWrap">
 <%= render 'features' %>
-</ul>
 <%= link_to 'New Feature', new_setting_feature_path(@setting) %>
+</div>
 
-<%= link_to 'Edit', edit_setting_path(@setting) %> |

@@ -15,4 +15,8 @@ $(document).ready(function() {
 				})
 			}
 	});
+	$('#settingIndexCards').accordion({
+		collapsible: true,
+		active:	'.lastSettingIndexCard'
+	});
 });

@@ -14,7 +14,7 @@ class SettingsController < ApplicationController
   # GET /settings/1.xml
   def show
     @setting = Setting.find(params[:id])
-	@features = Kaminari.paginate_array(@setting.features).page(params[:page]).per(3)
+	@features = Kaminari.paginate_array(@setting.features).page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # show.html.erb

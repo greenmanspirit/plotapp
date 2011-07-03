@@ -19,7 +19,7 @@
   border-bottom: 2px solid red; }
 
 #indexCardBottom {
-  min-height: 12em; }
+  min-height: 11em; }
 
 .smallIndexCard, .plotpoint {
   width: 14em;
@@ -38,6 +38,10 @@
 .smallIndexCardBottom {
   height: 8em;
   overflow: hidden; }
+  .smallIndexCardBottom p {
+    margin: 0;
+    padding: 0;
+    margin: 0; }
 
 .smallIndexCardLinks {
   height: 1em;
