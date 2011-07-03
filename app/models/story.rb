@@ -9,4 +9,7 @@ class Story < ActiveRecord::Base
 	def self.publicStories
 		where(["private = ?", false]).all
 	end
+	def self.privateStories
+		where(["private = ?", true]).all
+	end
 end

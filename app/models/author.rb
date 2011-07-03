@@ -6,7 +6,7 @@ class Author < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :bio
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :bio, :photo
 
   has_attached_file :photo, :styles => {:profile => "200x200>"}
   validates_attachment_size :photo, :less_than => 5.megabytes

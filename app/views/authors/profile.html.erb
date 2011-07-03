@@ -1,14 +1,31 @@
 <table id="profile">
 <tr>
 <td id="profilePhoto">
-<%= image_tag @author.photo.url(:profile) %>
+<%= image_tag @author.photo.url %>
 </td>
-<td id="profileUsername">
-<%= @author.username %>
+<td>
+<span id="profileUsername"><%= sanitize(@author.username, :tags=>'') %></span>
+<br>
+<p class="storyCount">
+<%= @author.stories.publicStories.length %>
+<% if @author.stories.publicStories.length == 1 then %>
+Story
+<% else %>
+Stories
+<% end %>
+</p>
 </td>
 </tr>
 <tr>
-<td> <%= @author.bio %> </td>
-<td> stories </td>
+<td colspan="2"> <%= simple_format(sanitize(@author.bio, :tags=>'')) %> </td>
+</tr>
+</td>
+<td colspan="2">
+<ul>
+<% @author.stories.publicStories.each do |story| %>
+<li><%= link_to story.title, story %></li>
+<% end %>
+</ul>
+</td>
 </tr>
 </table>

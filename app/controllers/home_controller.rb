@@ -1,17 +1,9 @@
 class HomeController < ApplicationController
   def index
   	if author_signed_in? then
-		@authorPublicStories = current_author.stories.select do |v|
-			v.private == false;
-		end
-
-		@authorPrivateStories = current_author.stories.select do |v|
-			v.private == true;
-		end
+		@authorPublicStories = current_author.stories.publicStories
+		@authorPrivateStories = current_author.stories.privateStories
 	end
-
-	@allPublicStories = Story.all(:conditions => ["private = ?", false]);
-
+	@allPublicStories = Story.publicStories;
   end
-
 end
