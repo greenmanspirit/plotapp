@@ -4,6 +4,9 @@ class PlotpointsController < ApplicationController
   def index
   	@story = Story.find(params["story_id"])
     @plotpoints = @story.plotpoints.all(:order => "position")
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @story.title, @story
+	add_breadcrumb 'Plot Designer', ''
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +18,10 @@ class PlotpointsController < ApplicationController
   # GET /plotpoints/1.xml
   def show
     @plotpoint = Plotpoint.find(params[:id])
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @plotpoint.story.title, @plotpoint.story
+	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
+	add_breadcrumb @plotpoint.summary, ''
 
     respond_to do |format|
       format.html # show.html.erb
@@ -27,6 +34,10 @@ class PlotpointsController < ApplicationController
   def new
   	@story = Story.find(params[:story_id])
     @plotpoint = Plotpoint.new
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @story.title, @story
+	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
+    add_breadcrumb 'Create new plot point', ''
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,6 +48,11 @@ class PlotpointsController < ApplicationController
   # GET /plotpoints/1/edit
   def edit
     @plotpoint = Plotpoint.find(params[:id])
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @plotpoint.story.title, @plotpoint.story
+	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
+	add_breadcrumb @plotpoint.summary, @plotpoint
+    add_breadcrumb 'Edit plot point', ''
   end
 
   # POST /plotpoints
@@ -44,6 +60,10 @@ class PlotpointsController < ApplicationController
   def create
   	@story = Story.find(params[:story_id])
     @plotpoint = @story.plotpoints.new(params[:plotpoint])
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @plotpoint.story.title, @plotpoint.story
+	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
+    add_breadcrumb 'Create new plot point', ''
 
     respond_to do |format|
       if @plotpoint.save
@@ -60,6 +80,10 @@ class PlotpointsController < ApplicationController
   # PUT /plotpoints/1.xml
   def update
     @plotpoint = Plotpoint.find(params[:id])
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @plotpoint.story.title, @plotpoint.story
+	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
+    add_breadcrumb 'Edit plot point', ''
 
     respond_to do |format|
       if @plotpoint.update_attributes(params[:plotpoint])

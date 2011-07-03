@@ -1,8 +1,11 @@
 class StoriesController < ApplicationController
+  add_breadcrumb 'Create new story', '', :only => [:new, :create]
+  add_breadcrumb 'Edit Story', '', :only => [:edit, :update]
   # GET /stories
   # GET /stories.xml
   def index
     @stories = Story.publicStories
+	add_breadcrumb 'Stories', ''
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +17,8 @@ class StoriesController < ApplicationController
   # GET /stories/1.xml
   def show
     @story = Story.find(params[:id])
+	add_breadcrumb 'Stories', stories_path()
+	add_breadcrumb @story.title, ''
 
     respond_to do |format|
       format.html # show.html.erb

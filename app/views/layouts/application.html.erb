@@ -22,6 +22,12 @@
 <%= link_to 'Sign In', new_author_session_path, :class => 'userControlLink' %>
 <% end %>
 <div class="clear"></div>
+<% if @breadcrumbs %>
+	<% @breadcrumbs[0..-2].each do |txt, path| %>
+		<%= link_to(h(txt), path) %> >
+	<% end %>
+	<%= h(@breadcrumbs.last.first) %>
+<% end %>
 <%= yield %>
 </div>
 </div>

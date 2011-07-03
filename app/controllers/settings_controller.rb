@@ -1,20 +1,12 @@
 class SettingsController < ApplicationController
-  # GET /settings
-  # GET /settings.xml
-  def index
-    @settings = Setting.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @settings }
-    end
-  end
-
   # GET /settings/1
   # GET /settings/1.xml
   def show
     @setting = Setting.find(params[:id])
 	@features = Kaminari.paginate_array(@setting.features).page(params[:page]).per(15)
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @setting.story.title, @setting.story
+	add_breadcrumb 'Setting', ''
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,6 +20,9 @@ class SettingsController < ApplicationController
   def new
   	@story = Story.find(params[:story_id])
     @setting = Setting.new
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @story.title, @story
+	add_breadcrumb 'Create new setting', ''
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +33,9 @@ class SettingsController < ApplicationController
   # GET /settings/1/edit
   def edit
     @setting = Setting.find(params[:id])
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @setting.story.title, @setting.story
+	add_breadcrumb 'Edit setting', ''
   end
 
   # POST /settings
@@ -46,6 +44,9 @@ class SettingsController < ApplicationController
   	@story = Story.find(params[:story_id])
     @setting = Setting.new(params[:setting])	
 	@setting.story = @story
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @story.title, @story
+	add_breadcrumb 'Create new setting', ''
 
     respond_to do |format|
       if @setting.save
@@ -62,6 +63,9 @@ class SettingsController < ApplicationController
   # PUT /settings/1.xml
   def update
     @setting = Setting.find(params[:id])
+	add_breadcrumb 'Stories', stories_path
+	add_breadcrumb @setting.story.title, @setting.story
+	add_breadcrumb 'Edit setting', ''
 
     respond_to do |format|
       if @setting.update_attributes(params[:setting])
@@ -71,18 +75,6 @@ class SettingsController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @setting.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /settings/1
-  # DELETE /settings/1.xml
-  def destroy
-    @setting = Setting.find(params[:id])
-    @setting.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(settings_url) }
-      format.xml  { head :ok }
     end
   end
 end
