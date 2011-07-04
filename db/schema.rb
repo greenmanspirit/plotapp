@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110630135337) do
+ActiveRecord::Schema.define(:version => 20110703111707) do
 
   create_table "authors", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -50,6 +50,10 @@ ActiveRecord::Schema.define(:version => 20110630135337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "story_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "events", :force => true do |t|

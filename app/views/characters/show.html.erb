@@ -1,34 +1,55 @@
-<p id="notice"><%= notice %></p>
-
+<table id="character">
+<tr>
+<td id="characterPhoto">
+<%= image_tag @character.photo.url(:profile) %>
+</td>
+<td>
+<span id="characterName"><%= sanitize(@character.name, :tags=>'') %></span>
 <p>
-  <b>Name:</b>
-  <%= @character.name %>
+<span class="bold">Age:</span>&nbsp;<%= @character.age %><br/>
+<span class="bold">Birthdate:</span>&nbsp;<%= @character.birthdate %><br/>
+<span class="bold">Hometown:</span>&nbsp;<%= @character.hometown %><br/>
+<span class="bold">Parents:</span>&nbsp;<%= @character.parents %>
 </p>
-
-<p>
-  <b>Birthdate:</b>
-  <%= @character.birthdate %>
-</p>
-
-<p>
-  <b>Age:</b>
-  <%= @character.age %>
-</p>
-
-<p>
-  <b>Hometown:</b>
-  <%= @character.hometown %>
-</p>
-
-<p>
-  <b>Parents:</b>
-  <%= @character.parents %>
-</p>
-
-<p>
-  <b>Other:</b>
-  <%= @character.other %>
-</p>
-
+</td>
+</tr>
+<tr>
+<td colspan="2"><%= simple_format(sanitize(@character.other, :tags=>'')) %></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="list">
+<h2>Virtues</h2>
+<ul id="virtueList">
+	<% @character.virtues.each do |virtue| %>
+		<li>
+			<%= virtue.detail %>
+		</li>
+	<% end %>
+</ul>
+</div>
+<div class="list">
+<h2>Vices</h2>
+<ul id="viceList">
+	<% @character.vices.each do |vice| %>
+		<li>
+			<%= vice.detail %>
+		</li>
+	<% end %>
+</ul>
+</div>
+<div class="list">
+<h2>Habit</h2>
+<ul id="habitList">
+	<% @character.habits.each do |habit| %>
+		<li>
+			<%= habit.detail %>
+		</li>
+	<% end %>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 
 <%= link_to 'Edit', edit_character_path(@character) %> |

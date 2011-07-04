@@ -1,4 +1,4 @@
-<%= form_for([@story, @character]) do |f| %>
+<%= form_for([@story, @character], :html => {:multipart => true}) do |f| %>
   <% if @character.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
@@ -11,30 +11,66 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :birthdate %><br />
-    <%= f.text_field :birthdate %>
-  </div>
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age %>
-  </div>
-  <div class="field">
-    <%= f.label :hometown %><br />
-    <%= f.text_field :hometown %>
-  </div>
-  <div class="field">
-    <%= f.label :parents %><br />
-    <%= f.text_field :parents %>
-  </div>
-  <div class="field">
-    <%= f.label :other %><br />
-    <%= f.text_area :other %>
-  </div>
+<table id="profile">
+<tr>
+<td id="profilePhoto">
+<%= image_tag @character.photo.url(:profile) %>
+<%= f.file_field :photo %>
+</td>
+<td>
+Username:<%= f.text_field :name, :id=>'characterName' %>
+<p>
+Age:<%= f.text_field :age %><br/>
+Birthdate:<%= f.text_field :birthdate %><br/>
+Hometown:<%= f.text_field :hometown %><br/>
+Parents:<%= f.text_field :parents %>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="2"><%= f.text_area :other %></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="list">
+<h2>Virtues</h2>
+<ul id="virtueList">
+	<%= f.fields_for :virtues do |virtue| %>
+		<li>
+			<%= virtue.check_box "_destroy" %>
+			<%= virtue.text_field :detail, :class=>'virtue' %>
+		</li>
+	<% end %>
+</ul>
+<%= link_to 'Add', '/#', :id=>'addVirtueLink', :remote=>true %>
+</div>
+<div class="list">
+<h2>Vices</h2>
+<ul id="viceList">
+	<%= f.fields_for :vices do |vice| %>
+		<li>
+			<%= vice.check_box "_destroy" %>
+			<%= vice.text_field :detail, :class=>'vice' %>
+		</li>
+	<% end %>
+</ul>
+<%= link_to 'Add', '/#', :id=>'addViceLink', :remote=>true %>
+</div>
+<div class="list">
+<h2>Habit</h2>
+<ul id="habitList">
+	<%= f.fields_for :habits do |habit| %>
+		<li>
+			<%= habit.check_box "_destroy" %>
+			<%= habit.text_field :detail, :class=>'habit' %>
+		</li>
+	<% end %>
+</ul>
+<%= link_to 'Add', '/#', :id=>'addHabitLink', :remote=>true %>
+</div>
+</td>
+</tr>
+</table>
   <div class="actions">
     <%= f.submit %>
   </div>
