@@ -1,4 +1,11 @@
 class FeaturesController < ApplicationController
+	before_filter :authenticate_author!, :except => [:show]
+	before_filter :only => [:edit, :update, :destroy] do |controller|
+		permission(Feature.find(controller.params[:id]))
+	end
+	before_filter :only => [:new, :create] do |controller|
+		permission(Story.find(controller.params[:story_id]))
+	end
 	def show
 		@feature = Feature.find(params[:id])
 		add_breadcrumb 'Stories', stories_path

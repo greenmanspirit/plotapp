@@ -18,4 +18,8 @@ class Character < ActiveRecord::Base
 			    :styles => {:profile => "200x200>"}
   	validates_attachment_size :photo, :less_than => 5.megabytes
   	validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
+	def parent ch
+		ch.story
+	end
 end

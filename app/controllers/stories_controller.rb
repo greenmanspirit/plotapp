@@ -1,6 +1,13 @@
 class StoriesController < ApplicationController
   add_breadcrumb 'Create new story', '', :only => [:new, :create]
   add_breadcrumb 'Edit Story', '', :only => [:edit, :update]
+  before_filter :authenticate_author!, :except => [:index, :show]
+	before_filter :only => [:edit, :update, :destroy] do |controller|
+		permission(Story.find(controller.params[:id]))
+	end
+	before_filter :only => [:new, :create] do |controller|
+		permission(current_author)
+	end
   # GET /stories
   # GET /stories.xml
   def index

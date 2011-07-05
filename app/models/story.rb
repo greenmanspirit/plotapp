@@ -12,4 +12,7 @@ class Story < ActiveRecord::Base
 	def self.privateStories
 		where(["private = ?", true]).all
 	end
+	def parent s
+		s.author
+	end
 end

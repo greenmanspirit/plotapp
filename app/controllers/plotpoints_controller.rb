@@ -1,4 +1,12 @@
 class PlotpointsController < ApplicationController
+	before_filter :authenticate_author!, :except => [:index, :show]
+	before_filter :only => [:edit, :update, :destroy] do |controller|
+		permission(Plotpoint.find(controller.params[:id]))
+	end
+	before_filter :only => [:new, :create] do |controller|
+		permission(Story.find(controller.params[:story_id]))
+	end
+	#permission Story.find(controller.params[:story_id]), :only => [:new, :create]
   # GET /plotpoints
   # GET /plotpoints.xml
   def index
