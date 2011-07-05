@@ -1,10 +1,3 @@
-<% if author_signed_in? then %>
-<%= render 'signed_in' %>
-<% else %>
-<%= render 'homepage' %>
-<% end %>
-<div id="allPublic">
-<h3>Sample of Public Stories</h3>
 <table class="storyList">
 <tr>
 <th class="storyTitle">Title</th>
@@ -13,7 +6,7 @@
 <th class="storyStat">SF</th>
 <th class="storyAuthor">Author</th>
 </tr>
-<% @allPublicStories.each do |story| %>
+<% @stories.each do |story| %>
 <tr class="storyListLine">
 <td class="storyTitle"><%= link_to story.title, story %></td>
 <td class="storyStat"><%= story.plotpoints.length%></td>
@@ -23,4 +16,3 @@
 </tr>
 <% end %>
 </table>
-</div>

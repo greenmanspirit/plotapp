@@ -17,4 +17,29 @@
 #allPublic {
   background-color: #fff;
   margin-left: 10%;
-  margin-right: 10%; }
+  margin-right: 10%;
+  margin-bottom: 5%; }
+
+.storyList {
+  width: 100%; }
+
+.storyListLine {
+  border-top: 1px solid #000; }
+
+.storyTitle {
+  width: 67%;
+  overflow: hidden;
+  text-align: left; }
+
+.storyAuthor {
+  width: auto;
+  text-align: right; }
+
+.storyStat {
+  width: auto;
+  text-align: right; }
+
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0; }

@@ -1,6 +1,6 @@
 $('#paginator').html('<%= escape_javascript(paginate(@features, :remote => true).to_s) %>');
 $('#settingIndexCardsWrap').html('<%= escape_javascript render 'features' %>');
-	$('#settingIndexCards').accordion({
-		collapsible: true,
-		active:	'.lastSettingIndexCard'
-	});
+$('#settingIndexCards').accordion({
+	collapsible: true,
+	active:	'.lastSettingIndexCard'
+});

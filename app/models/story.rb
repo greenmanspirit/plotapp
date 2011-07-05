@@ -7,7 +7,10 @@ class Story < ActiveRecord::Base
 	validates_presence_of :title
 
 	def self.publicStories
-		where(["private = ?", false]).all
+		where(["private = ?", false]).all(:order => 'random()')
+	end
+	def self.tenPublicStories
+		where(["private = ?", false]).all(:order => 'random()', :limit => 10)
 	end
 	def self.privateStories
 		where(["private = ?", true]).all

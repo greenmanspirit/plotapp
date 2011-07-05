@@ -1,0 +1,2 @@
+$('#paginator').html('<%= escape_javascript(paginate(@features, :remote => true).to_s) %>');
+$('#allPublic').html('<%= escape_javascript render 'stories' %>');

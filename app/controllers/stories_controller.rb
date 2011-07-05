@@ -11,7 +11,7 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.xml
   def index
-    @stories = Story.publicStories
+    @stories = Kaminari.paginate_array(Story.publicStories).page(params[:page]).per(25)
 	add_breadcrumb 'Stories', ''
 
     respond_to do |format|
