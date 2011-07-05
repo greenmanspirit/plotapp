@@ -11,3 +11,12 @@
   margin-right: auto;
   background-color: #fff;
   margin-bottom: 5%; }
+
+.author {
+  width: 150px;
+  height: 170px;
+  background-color: #fff;
+  float: left;
+  margin: 10px;
+  text-align: center;
+  padding: 10px; }
