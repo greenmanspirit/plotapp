@@ -4,7 +4,7 @@ class FeaturesController < ApplicationController
 		permission(Feature.find(controller.params[:id]))
 	end
 	before_filter :only => [:new, :create] do |controller|
-		permission(Story.find(controller.params[:story_id]))
+		permission(Setting.find(controller.params[:setting_id]))
 	end
 	def show
 		@feature = Feature.find(params[:id])

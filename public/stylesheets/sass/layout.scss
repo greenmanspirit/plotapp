@@ -25,8 +25,9 @@ body{
 }
 
 input[type=text], textarea {
-		width:			100%;
-		border:			none;
+	width:			100%;
+	border:			none;
+	font-family: 'Josephin Slab', serif;
 }
 
 table{
@@ -49,6 +50,7 @@ table{
 	overflow:			auto;
 	margin-top:			1em;
 	padding:			5px;
+	padding-bottom:		5%;
 }
 
 #legal{

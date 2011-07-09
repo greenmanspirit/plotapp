@@ -126,8 +126,7 @@
 
 #allPublic {
   margin-left: 10%;
-  margin-right: 10%;
-  margin-bottom: 5%; }
+  margin-right: 10%; }
 
 .storyList {
   width: 100%; }
@@ -216,8 +215,7 @@
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fff;
-  margin-bottom: 5%; }
+  background-color: #fff; }
 
 .bold {
   font-weight: bold; }
@@ -236,7 +234,8 @@ body {
 
 input[type=text], textarea {
   width: 100%;
-  border: none; }
+  border: none;
+  font-family: 'Josephin Slab', serif; }
 
 table {
   border-collapse: collapse;
@@ -257,7 +256,8 @@ table {
   -webkit-box-shadow: 0 0 10px #999999;
   overflow: auto;
   margin-top: 1em;
-  padding: 5px; }
+  padding: 5px;
+  padding-bottom: 5%; }
 
 #legal {
   width: 20em;
