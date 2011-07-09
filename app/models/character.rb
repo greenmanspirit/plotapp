@@ -1,7 +1,7 @@
 class Character < ActiveRecord::Base
-	has_many :vices
-	has_many :virtues
-	has_many :habits
+	has_many :vices, :dependent => :destroy
+	has_many :virtues, :dependent => :destroy
+	has_many :habits, :dependent => :destroy
 	belongs_to :story
 
 	accepts_nested_attributes_for :virtues, :allow_destroy=>true, :reject_if => proc { |attr| attr['detail'].blank? }

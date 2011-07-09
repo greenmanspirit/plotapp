@@ -14,11 +14,11 @@
   <div id="indexCard">
   <div id="indexCardTop">
     <%= f.label :summary %><br />
-    <%= f.text_field :summary %>
+    <%= f.text_field :summary, :class=>:maxwidth %>
   </div>
   <div id="indexCardBottom">
     <%= f.label :detail %><br />
-    <%= f.text_area :detail %>
+    <%= f.text_area :detail, :class=>:maxwidth %>
   </div>
   <div class="actions">
     <%= f.submit %>

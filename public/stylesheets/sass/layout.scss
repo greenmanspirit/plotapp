@@ -25,9 +25,8 @@ body{
 }
 
 input, textarea {
-	border:				none;
+	border:				1px solid #c9e4e2;
 	font-family: 		'Josephin Slab', serif;
-	background-color:	#eee;
 }
 
 table{
@@ -44,7 +43,7 @@ table{
 	display:			inline;
 }
 .maxwidth{
-	width:	100%;
+	width:	99%;
 }
 .width85{
 	width:	85%;

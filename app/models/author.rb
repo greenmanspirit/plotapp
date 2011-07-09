@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
-  has_many :stories
+  has_many :stories, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :confirmable, :registerable,

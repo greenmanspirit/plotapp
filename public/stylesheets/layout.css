@@ -13,16 +13,14 @@
   margin-top: 20px;
   margin-bottom: 20px;
   width: 70%;
-  background-color: #eee;
   padding: 5px; }
-  #indexCard input[type=text], #indexCard textarea {
-    background-color: #eee; }
 
 #indexCardTop {
-  border-bottom: 1px solid #000; }
+  font-size: 1.5em; }
 
 #indexCardBottom {
-  min-height: 11em; }
+  min-height: 11em;
+  font-family: 'Josephin Slab', serif; }
 
 .smallIndexCard, .plotpoint {
   width: 14em;
@@ -30,16 +28,17 @@
   padding: 5px;
   margin: 5px;
   float: left;
-  background-color: #eee; }
+  border: 2px solid #91A8AE; }
 
 .smallIndexCardTop {
   overflow: hidden;
   cursor: move;
-  border-bottom: 1px solid #000; }
+  border-bottom: 1px solid #91A8AE; }
 
 .smallIndexCardBottom {
   height: 8em;
-  overflow: hidden; }
+  overflow: hidden;
+  font-family: 'Josephin Slab', serif; }
   .smallIndexCardBottom p {
     margin: 0;
     padding: 0;
@@ -149,15 +148,17 @@
 
 .settingIndexCardTop, .settingIndexCardTopShadow, .lastSettingIndexCard {
   display: block;
-  padding-top: 5px;
-  padding-right: 5px;
-  padding-left: 5px;
-  margin-bottom: 4px; }
+  padding: 5px;
+  border-left: 2px solid #91A8AE;
+  border-right: 2px solid #91A8AE; }
+
+.settingIndexCardTop {
+  border-top: 2px solid #91A8AE; }
 
 .test {
   display: block;
   width: 100%;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #91A8AE;
   overflow: hidden; }
 
 .settingIndexCardBottom {
@@ -166,6 +167,9 @@
   padding-left: 5px;
   height: 5em;
   overflow: hidden;
+  font-family: 'Josephin Slab', serif;
+  border-left: 2px solid #91A8AE;
+  border-right: 2px solid #91A8AE;
   font-family: 'Josephin Slab', serif; }
   .settingIndexCardBottom p {
     margin: 0;
@@ -174,7 +178,10 @@
 .settingIndexCardLinks {
   height: 1em;
   text-align: right;
-  padding-bottom: 4px; }
+  padding-bottom: 4px;
+  border-left: 2px solid #91A8AE;
+  border-right: 2px solid #91A8AE;
+  border-bottom: 2px solid #91A8AE; }
 
 #settingIndexCards {
   float: left;
@@ -183,8 +190,7 @@
   margin-left: 2.5%;
   margin-right: 5%;
   list-style: none;
-  width: 27.5%;
-  background-color: #eee; }
+  width: 27.5%; }
 
 #settingSummary {
   width: 56.5%;
@@ -193,7 +199,8 @@
   padding: 0;
   margin: 0;
   margin-right: 2.5%;
-  margin-left: 5%; }
+  margin-left: 5%;
+  font-family: 'Josephin Slab', serif; }
 
 #settingIndexCardsWrap {
   margin-bottom: 5%; }
@@ -238,9 +245,8 @@ body {
   font-family: 'Open Sans', sans-serif; }
 
 input, textarea {
-  border: none;
-  font-family: 'Josephin Slab', serif;
-  background-color: #eee; }
+  border: 1px solid #c9e4e2;
+  font-family: 'Josephin Slab', serif; }
 
 table {
   border-collapse: collapse;
@@ -256,7 +262,7 @@ table {
   display: inline; }
 
 .maxwidth {
-  width: 100%; }
+  width: 99%; }
 
 .width85 {
   width: 85%; }

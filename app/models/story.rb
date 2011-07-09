@@ -1,7 +1,7 @@
 class Story < ActiveRecord::Base
-	has_many :plotpoints
-	has_many :characters
-	has_one :setting
+	has_many :plotpoints, :dependent => :destroy
+	has_many :characters, :dependent => :destroy
+	has_one :setting, :dependent => :destroy
 	belongs_to :author
 
 	validates_presence_of :title

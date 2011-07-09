@@ -1,14 +1,16 @@
 .settingIndexCardTop, .settingIndexCardTopShadow, .lastSettingIndexCard{
 	display:			block;
-	padding-top:		5px;
-	padding-right:		5px;
-	padding-left:		5px;
-	margin-bottom:		4px;
+	padding:		5px;
+	border-left:		2px solid #91A8AE;
+	border-right:		2px solid #91A8AE;
+}
+.settingIndexCardTop{
+	border-top:		2px solid #91A8AE;
 }
 .test{
 	display:			block;
 	width:				100%;
-	border-bottom:		1px solid #000;
+	border-bottom:		1px solid #91A8AE;
 	overflow:			hidden;
 }
 .settingIndexCardBottom{
@@ -22,11 +24,17 @@
 		margin:			0;
 		padding:		0;
 	}
+	border-left:		2px solid #91A8AE;
+	border-right:		2px solid #91A8AE;
+	font-family: 		'Josephin Slab', serif;
 }
 .settingIndexCardLinks{
 	height:				1em;
 	text-align:			right;
 	padding-bottom:		4px;
+	border-left:		2px solid #91A8AE;
+	border-right:		2px solid #91A8AE;
+	border-bottom:		2px solid #91A8AE;
 }
 #settingIndexCards{
 	float:				left;
@@ -36,7 +44,6 @@
 	margin-right:		5%;
 	list-style:			none;
 	width:				27.5%;
-	background-color:	#eee;
 }
 #settingSummary{
 	width:				56.5%;
@@ -46,6 +53,7 @@
 	margin:				0;
 	margin-right:		2.5%;
 	margin-left:		5%;
+	font-family: 		'Josephin Slab', serif;
 }
 #settingIndexCardsWrap{
 	margin-bottom:		5%;
