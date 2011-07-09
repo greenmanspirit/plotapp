@@ -7,8 +7,8 @@
 <span id="profileUsername"><%= sanitize(@author.username, :tags=>'') %></span>
 <br>
 <p class="storyCount">
-<%= @author.stories.publicStories.length %>
-<% if @author.stories.publicStories.length == 1 then %>
+<%= @author.stories.public_stories.length %>
+<% if @author.stories.public_stories.length == 1 then %>
 Story
 <% else %>
 Stories
@@ -22,7 +22,7 @@ Stories
 </td>
 <td colspan="2">
 <ul>
-<% @author.stories.publicStories.each do |story| %>
+<% @author.stories.public_stories.each do |story| %>
 <li><%= link_to story.title, story %></li>
 <% end %>
 </ul>
