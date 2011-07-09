@@ -1,26 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Delete', 'asdf' %>
 
 <div id="storyTitle">
   <%= @story.title %>
 </div>
-<div id="notebookHolder">
-<div id="notebooks">
-<div id="plotNotebook" class="notebook">
+<ul id="notebooks">
+	<li>
 	<%= link_to "Plot Points", story_plotpoints_path(@story) %>
-</div>
-<div id="charactersNotebook" class="notebook">
+	</li>
+	<li>
 	<%= link_to "Characters", story_characters_path(@story) %>
-</div>
-
-<div id="settingNotebook" class="notebook">
+	</li>
+	<li>
 	<% if @story.setting == nil then %>
 	<%= link_to "Setting", new_story_setting_path(@story) %>
 	<% else %>
 	<%= link_to "Setting", @story.setting %>
 	<% end %>
-</div>
-</div>
-</div>
+	</li>
+</ul>
 
 
-<%= link_to 'Edit', edit_story_path(@story) %> |

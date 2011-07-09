@@ -3,8 +3,7 @@
 
 #authorPublic, #authorPrivate {
   width: 37.5%;
-  float: left;
-  background-color: #fff; }
+  float: left; }
 
 #authorPublic {
   margin-left: 10%;
@@ -15,7 +14,6 @@
   margin-right: 10%; }
 
 #allPublic {
-  background-color: #fff;
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 5%; }
@@ -38,8 +36,3 @@
 .storyStat {
   width: auto;
   text-align: right; }
-
-table {
-  border-collapse: collapse;
-  margin: 0;
-  padding: 0; }

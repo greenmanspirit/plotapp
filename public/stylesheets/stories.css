@@ -1,23 +1,29 @@
 #storyTitle {
-  width: 50%;
-  background-color: #fff;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
-  font-size: 2.5em; }
+  font-size: 2.5em;
+  text-align: center; }
 
 #notebookHolder {
   text-align: center; }
 
 #notebooks {
-  display: inline-block;
   overflow: auto;
+  margin: 0;
+  padding: 0;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  text-align: center;
+  width: 80%;
+  list-style: none; }
+  #notebooks li {
+    margin: 0;
+    padding: 0; }
 
 .notebook {
   float: left;
   background-color: #ccc;
-  text-align: center;
   vertical-align: middle;
   height: 15em;
   width: 10em;

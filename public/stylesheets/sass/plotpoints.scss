@@ -13,12 +13,16 @@
 	margin-top:			20px;
 	margin-bottom:		20px;
 	width:				70%;
-	background-color:	#ffffff;
+	background-color:	#eee;
 	padding:			5px;
+
+	input[type=text], textarea{
+		background-color:	#eee;
+	}
 }
 
 #indexCardTop{
-	border-bottom:		2px solid red;
+	border-bottom:		1px solid #000;
 }
 
 #indexCardBottom{
@@ -27,18 +31,17 @@
 
 .smallIndexCard, .plotpoint{
 	width:				14em;
-	height:				10em;
+	height:				11em;
 	padding:			5px;
 	margin:				5px;
-	background-color:	#ffffff;
 	float:				left;
+	background-color:	#eee;
 }
 
 .smallIndexCardTop{
-	border-bottom:		2px solid red;
-	height:				1em;
 	overflow:			hidden;
 	cursor:				move;
+	border-bottom:		1px solid #000;
 }
 
 .smallIndexCardBottom{

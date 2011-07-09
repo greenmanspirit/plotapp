@@ -1,3 +1,4 @@
+<%= link_to 'Edit', edit_plotpoint_path(@plotpoint) %>
 <p id="notice"><%= notice %></p>
 <div id="indexCard">
 <div id="indexCardTop">
@@ -7,4 +8,3 @@
   <%= simple_format(sanitize(@plotpoint.details, :tags => '')) %>
 </div>
 </div>
-<%= link_to 'Edit', edit_plotpoint_path(@plotpoint) %>

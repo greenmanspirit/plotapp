@@ -1,7 +1,8 @@
+<%= link_to 'New Character', new_story_character_path(@story) %>
+<div class="clear"></div>
 <% @characters.each do |character| %>
 <div class="author">
-<%= image_tag character.photo.url(:thumb) %><br/>
+<%= link_to((image_tag character.photo.url(:thumb)), character) %><br/>
 <%= link_to character.name, character %>
 </div>
 <% end %>
-<%= link_to 'New Character', new_story_character_path(@story) %>

@@ -1,6 +1,5 @@
 .settingIndexCardTop, .settingIndexCardTopShadow, .lastSettingIndexCard{
 	display:			block;
-	background-color:	#fff;
 	padding-top:		5px;
 	padding-right:		5px;
 	padding-left:		5px;
@@ -9,8 +8,7 @@
 .test{
 	display:			block;
 	width:				100%;
-	border-bottom:		2px solid red;
-	height:				1em;
+	border-bottom:		1px solid #000;
 	overflow:			hidden;
 }
 .settingIndexCardBottom{
@@ -19,6 +17,7 @@
 	padding-left:		5px;
 	height:				5em;
 	overflow:			hidden;
+	font-family:		'Josephin Slab', serif;
 	p{
 		margin:			0;
 		padding:		0;
@@ -31,28 +30,27 @@
 }
 #settingIndexCards{
 	float:				left;
-	overflow:			auto;
 	padding:			0;
 	margin:				0;
 	margin-left:		2.5%;
 	margin-right:		5%;
 	list-style:			none;
 	width:				27.5%;
-	background-color:	#fff;
+	background-color:	#eee;
 }
 #settingSummary{
 	width:				56.5%;
 	float:				left;
 	background-color:	#fff;
+	padding:			0;
+	margin:				0;
 	margin-right:		2.5%;
 	margin-left:		5%;
-	padding:			5px;
-	margin-bottom:		5%;
 }
 #settingIndexCardsWrap{
 	margin-bottom:		5%;
 }
 .settingIndexCardTopShadow, .lastSettingIndexCard{
-	@include box-shadow(0px, -2px, 2px, #888);
+	@include box-shadow(0px, -1px, 0px, #888);
 	border-top:			1px solid #555;
 }

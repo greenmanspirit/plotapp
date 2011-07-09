@@ -1,3 +1,4 @@
+<%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>
 <ul id="plotpoints" >
 <% @plotpoints.each do |point| %>
 <%= content_tag_for :li, point do %>
@@ -15,4 +16,3 @@
 <% end %>
 <% end %>
 </ul>
-<%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>

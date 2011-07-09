@@ -12,28 +12,29 @@
   margin-top: 20px;
   margin-bottom: 20px;
   width: 70%;
-  background-color: #ffffff;
+  background-color: #eee;
   padding: 5px; }
+  #indexCard input[type=text], #indexCard textarea {
+    background-color: #eee; }
 
 #indexCardTop {
-  border-bottom: 2px solid red; }
+  border-bottom: 1px solid #000; }
 
 #indexCardBottom {
   min-height: 11em; }
 
 .smallIndexCard, .plotpoint {
   width: 14em;
-  height: 10em;
+  height: 11em;
   padding: 5px;
   margin: 5px;
-  background-color: #ffffff;
-  float: left; }
+  float: left;
+  background-color: #eee; }
 
 .smallIndexCardTop {
-  border-bottom: 2px solid red;
-  height: 1em;
   overflow: hidden;
-  cursor: move; }
+  cursor: move;
+  border-bottom: 1px solid #000; }
 
 .smallIndexCardBottom {
   height: 8em;

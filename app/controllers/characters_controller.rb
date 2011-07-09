@@ -108,10 +108,11 @@ class CharactersController < ApplicationController
   # DELETE /characters/1.xml
   def destroy
     @character = Character.find(params[:id])
+	@story = @character.story
     @character.destroy
 
     respond_to do |format|
-      format.html { redirect_to(characters_url) }
+      format.html { redirect_to(story_characters_url(@story)) }
       format.xml  { head :ok }
     end
   end

@@ -7,6 +7,25 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<div id="page">
+<%= link_to 'Home', root_path, :class => 'logo'%>
+<% if author_signed_in? then %>
+<%= link_to 'Sign Out', destroy_author_session_path, :class => 'userControlLink' %>
+<%= link_to 'Edit', edit_author_registration_path, :class => 'userControlLink' %>
+<% else %>
+<%= link_to 'Register', new_author_registration_path, :class => 'userControlLink'%>
+<%= link_to 'Sign In', new_author_session_path, :class => 'userControlLink' %>
+<% end %>
+<div class="clear"></div>
+<% if @breadcrumbs %>
+	<div id="breadcrumbs">
+	<% @breadcrumbs[0..-2].each do |txt, path| %>
+		<%= link_to(h(txt), path, :class => 'breadcrumb') %> >
+	<% end %>
+	<%= h(@breadcrumbs.last.first) %>
+	</div>
+<% end %>
+<div class="clear"></div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <p class="error"><%= flash[:error] %></p>
@@ -14,29 +33,12 @@
 </p>
 
 <div id="desk">
-<%= link_to 'Home', root_path, :class => 'logo'%>
-<% if author_signed_in? then %>
-<%= link_to 'Edit', edit_author_registration_path, :class => 'userControlLink' %>
-<%= link_to 'Sign Out', destroy_author_session_path, :class => 'userControlLink' %>
-<% else %>
-<%= link_to 'Register', new_author_registration_path, :class => 'userControlLink'%>
-<%= link_to 'Sign In', new_author_session_path, :class => 'userControlLink' %>
-<% end %>
-<div class="clear"></div>
-<% if @breadcrumbs %>
-	<span id="breadcrumbs">
-	<% @breadcrumbs[0..-2].each do |txt, path| %>
-		<%= link_to(h(txt), path, :class => 'breadcrumb') %> >
-	<% end %>
-	<%= h(@breadcrumbs.last.first) %>
-	</span>
-<% end %>
-<div class="clear"></div>
 <%= yield %>
 </div>
 </div>
 <div id="legal">
 &copy; 2011 Adam Hobaugh
+</div>
 </div>
 </body>
 </html>
