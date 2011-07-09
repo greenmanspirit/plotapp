@@ -232,15 +232,25 @@ body {
   font-size: 15px;
   font-family: 'Open Sans', sans-serif; }
 
-input[type=text], textarea {
-  width: 100%;
+input, textarea {
   border: none;
-  font-family: 'Josephin Slab', serif; }
+  font-family: 'Josephin Slab', serif;
+  background-color: #eee; }
 
 table {
   border-collapse: collapse;
   margin: 0;
   padding: 0; }
+
+.maxwidth {
+  width: 100%; }
+
+#devisePage {
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto; }
 
 #page {
   margin: 0;
