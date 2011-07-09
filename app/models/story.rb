@@ -6,13 +6,13 @@ class Story < ActiveRecord::Base
 
 	validates_presence_of :title
 
-	def self.publicStories
+	def self.public_stories
 		where(["private = ?", false]).all(:order => 'random()')
 	end
-	def self.tenPublicStories
+	def self.ten_public_stories
 		where(["private = ?", false]).all(:order => 'random()', :limit => 10)
 	end
-	def self.privateStories
+	def self.private_stories
 		where(["private = ?", true]).all
 	end
 	def parent s
