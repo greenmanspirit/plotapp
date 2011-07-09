@@ -1,32 +1,7 @@
-<h1>Listing characters</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Birthdate</th>
-    <th>Age</th>
-    <th>Hometown</th>
-    <th>Parents</th>
-    <th>Other</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @characters.each do |character| %>
-  <tr>
-    <td><%= character.name %></td>
-    <td><%= character.birthdate %></td>
-    <td><%= character.age %></td>
-    <td><%= character.hometown %></td>
-    <td><%= character.parents %></td>
-    <td><%= character.other %></td>
-    <td><%= link_to 'Show', character %></td>
-    <td><%= link_to 'Edit', edit_character_path(character) %></td>
-    <td><%= link_to 'Destroy', character, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="author">
+<%= image_tag character.photo.url(:thumb) %><br/>
+<%= link_to character.name, character %>
+</div>
 <% end %>
-</table>
-
-<br />
-<%= link_to 'New', new_story_character_path(@story) %>
+<%= link_to 'New Character', new_story_character_path(@story) %>

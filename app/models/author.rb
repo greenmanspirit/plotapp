@@ -13,6 +13,9 @@ class Author < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
+  validates_length_of :username, :within => 6..16
+  validates_uniqueness_of :username, :id
+
   def update_with_password(params={})
   	params.delete(:current_password)
 	self.update_without_password(params)

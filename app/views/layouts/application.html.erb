@@ -24,11 +24,14 @@
 <% end %>
 <div class="clear"></div>
 <% if @breadcrumbs %>
+	<span id="breadcrumbs">
 	<% @breadcrumbs[0..-2].each do |txt, path| %>
-		<%= link_to(h(txt), path) %> >
+		<%= link_to(h(txt), path, :class => 'breadcrumb') %> >
 	<% end %>
 	<%= h(@breadcrumbs.last.first) %>
+	</span>
 <% end %>
+<div class="clear"></div>
 <%= yield %>
 </div>
 </div>
