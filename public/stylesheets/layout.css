@@ -227,6 +227,11 @@
 .characterbio {
   font-family: 'Josephin Slab', serif; }
 
+#virtueListForm, #viceListForm, #habitListForm {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
 body {
   background-color: #EAF7FB;
   font-size: 15px;
@@ -240,10 +245,21 @@ input, textarea {
 table {
   border-collapse: collapse;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  width: 100%;
+  overflow: hidden; }
+
+.field_with_errors {
+  border: 3px solid #ffa8a8;
+  margin: 0;
+  padding: 0;
+  display: inline; }
 
 .maxwidth {
   width: 100%; }
+
+.width85 {
+  width: 85%; }
 
 #devisePage {
   width: 80%;

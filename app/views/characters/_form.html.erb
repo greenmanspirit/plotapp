@@ -18,9 +18,9 @@
 <%= f.file_field :photo %>
 </td>
 <td>
-Username:<%= f.text_field :name, :id=>'characterName' %>
+<%= f.text_field :name, :id=>'characterName', :class=>"maxwidth" %>
 <p>
-Age:<%= f.text_field :age %><br/>
+Age:<%= f.text_field :age, :size=>5%><br/>
 Birthdate:<%= f.text_field :birthdate %><br/>
 Hometown:<%= f.text_field :hometown %><br/>
 Parents:<%= f.text_field :parents %>
@@ -28,17 +28,20 @@ Parents:<%= f.text_field :parents %>
 </td>
 </tr>
 <tr>
-<td colspan="2"><%= f.text_area :other %></td>
+<td colspan="2"><%= f.text_area :other, :class=>:maxwidth %></td>
 </tr>
 <tr>
 <td colspan="2">
+<div>
+To add a quark click 'Add'. To delete a quark, click the checkbox beside the quark you want to remove and it will be deleted upon saving.
+</div>
 <div class="list">
 <h2>Virtues</h2>
-<ul id="virtueList">
+<ul id="virtueListForm">
 	<%= f.fields_for :virtues do |virtue| %>
 		<li>
 			<%= virtue.check_box "_destroy" %>
-			<%= virtue.text_field :detail, :class=>'virtue' %>
+			<%= virtue.text_field :detail, :class=>'virtue, maxwidth' %>
 		</li>
 	<% end %>
 </ul>
@@ -46,11 +49,11 @@ Parents:<%= f.text_field :parents %>
 </div>
 <div class="list">
 <h2>Vices</h2>
-<ul id="viceList">
+<ul id="viceListForm">
 	<%= f.fields_for :vices do |vice| %>
 		<li>
 			<%= vice.check_box "_destroy" %>
-			<%= vice.text_field :detail, :class=>'vice' %>
+			<%= vice.text_field :detail, :class=>'vice, maxwidth' %>
 		</li>
 	<% end %>
 </ul>
@@ -58,11 +61,11 @@ Parents:<%= f.text_field :parents %>
 </div>
 <div class="list">
 <h2>Habit</h2>
-<ul id="habitList">
+<ul id="habitListForm">
 	<%= f.fields_for :habits do |habit| %>
 		<li>
 			<%= habit.check_box "_destroy" %>
-			<%= habit.text_field :detail, :class=>'habit' %>
+			<%= habit.text_field :detail, :class=>'habit, maxwidth' %>
 		</li>
 	<% end %>
 </ul>
