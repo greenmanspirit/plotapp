@@ -23,7 +23,7 @@ class Author < ActiveRecord::Base
   	params.delete(:current_password)
 	self.update_without_password(params)
   end
-  def admires
+  def fave_authors
   	Authorfan.all(:conditions=>['fan_id = ?', id]);
   end
 end

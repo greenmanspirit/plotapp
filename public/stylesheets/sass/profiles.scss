@@ -16,6 +16,25 @@
 #profilebio{
 	font-family:		'Josephin Slab', serif;
 }
+#profileCol1{
+	float:				left;
+	width:				30%;
+}
+#profileCol2{
+	float:				left;
+	width:				70%;
+}
+.profileStories{
+	padding: 	0;
+	padding-left: 1em;
+	margin:		0;
+	overflow:	hidden;
+}
+.profileheader{
+	font-family:		'Open Sans', sans;
+	font-weight:		600;
+	font-size:			1.25em;
+}
 .storyCount, .fanCount{
 	padding:		0;
 	margin:			0;
