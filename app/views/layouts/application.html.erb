@@ -16,6 +16,8 @@
 <%= link_to 'Register', new_author_registration_path, :class => 'userControlLink'%>
 <%= link_to 'Sign In', new_author_session_path, :class => 'userControlLink' %>
 <% end %>
+<%= link_to 'Stories', stories_path, :class => 'userControlLink' %>
+<%= link_to 'Authors', authors_path, :class => 'userControlLink' %>
 <div class="clear"></div>
 <% if @breadcrumbs %>
 	<div id="breadcrumbs">
