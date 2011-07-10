@@ -1,6 +1,6 @@
 <% @authors.each do |author| %>
 <div class="author">
-<%= image_tag author.photo.url(:thumb) %><br/>
+<%= link_to((image_tag author.photo.url(:thumb)), view_author_profile_path(author)) %><br/>
 <%= link_to author.username, view_author_profile_path(author) %>
 </div>
 <% end %>
