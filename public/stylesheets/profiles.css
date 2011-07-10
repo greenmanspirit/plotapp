@@ -16,6 +16,18 @@
 #profilebio {
   font-family: 'Josephin Slab', serif; }
 
+.storyCount, .fanCount {
+  padding: 0;
+  margin: 0; }
+
+.messageButton {
+  text-decoration: none;
+  color: #000;
+  background-color: #c9e4e2;
+  padding: 3px;
+  float: left;
+  margin: 2.5px; }
+
 .author {
   width: 170px;
   height: 170px;

@@ -1,0 +1,18 @@
+<%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>
+<ul id="plotpoints" >
+<% @plotpoints.each do |point| %>
+<%= content_tag_for :li, point do %>
+	<div class="smallIndexCardTop">
+		<%= sanitize(point.summary, :tags => '') %>
+	</div>
+	<div class="smallIndexCardBottom">
+		<%= simple_format(sanitize(point.details, :tags => '')) %>
+	</div>
+	<div class="smallIndexCardLinks">
+		<%= link_to 'view', point %>
+		<%= link_to 'edit', edit_plotpoint_path(point) %>
+		<%= link_to 'delete', point, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+<% end %>
+<% end %>
+</ul>

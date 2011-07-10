@@ -14,6 +14,28 @@ Story
 Stories
 <% end %>
 </p>
+<p class="fanCount">
+	<%= @author.fans.length %>
+	<% if @author.fans.length == 1 then %>
+		Fan
+	<% else %>
+		Fans
+	<% end %>
+</p>
+<div id="profileLinks">
+<% if @author != current_author then %>
+	<div id="fanButton">
+		<% if @author.fans.index(current_author) == nil then %>
+			<%= link_to 'Fave', fan_author_path(@author), :class=>'fanButton', :remote=>true%>
+		<% else %>
+			<%= link_to 'De-Fave', defan_author_path(@author), :class=>'fanButton', :remote=>true%>
+		<% end %>
+	</div>
+	<div id="messageButton">
+		<%= link_to "Message", "todo", :class=>'messageButton'%>
+	</div>
+<% end %>
+</div>
 </td>
 </tr>
 <tr>
@@ -26,6 +48,13 @@ Stories
 <li><%= link_to story.title, story %></li>
 <% end %>
 </ul>
+<h2>Favorite Authors</h2>
+<% sep = '' %>
+<% @author.admires.each do |admire| %>
+<%= sep %>
+<%= link_to admire.author.username, view_author_profile_path(admire.author) %>
+<% sep = ',' %>
+<% end %>
 </td>
 </tr>
 </table>

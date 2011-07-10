@@ -1,0 +1,2 @@
+$('#fanButton').html('<%= link_to 'Fave', fan_author_path(@author), :class=>'fanButton', :remote=>true%>');
+$('.fanCount').html('<%= @author.fans.length %><% if @author.fans.length == 1 then %> Fan<% else %> Fans<% end %>');

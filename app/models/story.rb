@@ -1,6 +1,7 @@
 class Story < ActiveRecord::Base
 	has_many :plotpoints, :dependent => :destroy
 	has_many :characters, :dependent => :destroy
+	has_many :authors, :through => :fans
 	has_one :setting, :dependent => :destroy
 	belongs_to :author
 
@@ -18,6 +19,9 @@ class Story < ActiveRecord::Base
 	end
 	def self.private_stories
 		where(["private = ?", true]).all
+	end
+	def self.top_ten_by_fans
+		
 	end
 	def parent s
 		s.author

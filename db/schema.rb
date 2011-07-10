@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110703111707) do
+ActiveRecord::Schema.define(:version => 20110709230032) do
+
+  create_table "authorfans", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "fan_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authors", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
