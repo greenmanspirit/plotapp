@@ -4,6 +4,8 @@ class Story < ActiveRecord::Base
 	has_many :authors, :through => :fans
 	has_one :setting, :dependent => :destroy
 	belongs_to :author
+	has_many :storyfans
+	has_many :fans, :through => :storyfans
 
 	validates_presence_of :title
 

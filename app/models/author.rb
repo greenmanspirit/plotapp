@@ -24,6 +24,9 @@ class Author < ActiveRecord::Base
 	self.update_without_password(params)
   end
   def fave_authors
-  	Authorfan.all(:conditions=>['fan_id = ?', id]);
+  	Authorfan.all(:conditions=>['fan_id = ?', id])
+  end
+  def fave_stories
+  	Storyfan.all(:conditions=>['author_id = ?', id])
   end
 end

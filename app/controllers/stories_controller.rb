@@ -92,4 +92,17 @@ class StoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+	def fan
+		fan = Storyfan.new
+		fan.story_id = params[:story_id]
+		fan.author_id = current_author.id
+		fan.save!
+		@story = Story.find(params[:story_id])
+	end
+	def defan
+		fan = Storyfan.first(:conditions=>["story_id = ? AND author_id = ?", params[:story_id], current_author.id])
+		fan.destroy
+		@story = Story.find(params[:story_id])
+	end
 end

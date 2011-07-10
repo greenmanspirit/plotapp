@@ -23,7 +23,7 @@ Stories
 	<% end %>
 </p>
 <div id="profileLinks">
-<% if @author != current_author then %>
+<% if author_signed_in? && @author != current_author then %>
 	<div id="fanButton">
 		<% if @author.fans.index(current_author) == nil then %>
 			<%= link_to 'Fave', fan_author_path(@author), :class=>'fanButton', :remote=>true%>
@@ -52,6 +52,13 @@ Stories
 <% @author.fave_authors.each do |fave| %>
 <%= sep %>
 <%= link_to fave.author.username, view_author_profile_path(fave.author) %>
+<% sep = ',' %>
+<% end %>
+<h2 class="profileheader">Favorite Stories</h2>
+<% sep = '' %>
+<% @author.fave_stories.each do |fave| %>
+<%= sep %>
+<%= link_to fave.story.title, fave.story %>
 <% sep = ',' %>
 <% end %>
 </div>

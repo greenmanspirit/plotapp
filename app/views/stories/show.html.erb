@@ -4,6 +4,23 @@
 <div id="storyTitle">
   <%= @story.title %>
 </div>
+<p class="fanCount">
+	<%= @story.fans.length %>
+	<% if @story.fans.length == 1 then %>
+		Fan
+	<% else %>
+		Fans
+	<% end %>
+</p>
+<% if author_signed_in? && @story.author != current_author then %>
+	<div id="fanButton">
+		<% if @story.fans.index(current_author) == nil then %>
+			<%= link_to 'Fave', story_fan_path(@story), :class=>'fanButton', :remote=>true%>
+		<% else %>
+			<%= link_to 'De-Fave', story_defan_path(@story), :class=>'fanButton', :remote=>true%>
+		<% end %>
+	</div>
+<% end %>
 <ul id="notebooks">
 	<li>
 	<%= link_to "Plot Points", story_plotpoints_path(@story) %>

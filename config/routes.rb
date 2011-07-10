@@ -16,6 +16,8 @@ PlotApp::Application.routes.draw do
 	resources :settings, :shallow => true do
 		resources :features
 	end
+	get "fan", :to => "stories#fan", :as => "fan"
+	get "defan", :to => "stories#defan", :as => "defan"
   end
 
   get "home/index"
