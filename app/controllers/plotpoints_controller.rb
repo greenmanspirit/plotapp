@@ -3,7 +3,7 @@ class PlotpointsController < ApplicationController
 	before_filter :only => [:edit, :update, :destroy] do |controller|
 		permission(Plotpoint.find(controller.params[:id]))
 	end
-	before_filter :only => [:new, :create] do |controller|
+	before_filter :only => [:new, :create, :sort] do |controller|
 		permission(Story.find(controller.params[:story_id]))
 	end
 	#permission Story.find(controller.params[:story_id]), :only => [:new, :create]

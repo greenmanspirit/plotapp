@@ -1,4 +1,6 @@
-<%= link_to 'Edit', edit_plotpoint_path(@plotpoint) %>
+<% if author_signed_in? && @plotpoint.story.author == current_author %>
+<%= link_to 'Edit'+current_author, edit_plotpoint_path(@plotpoint) %>
+<% end %>
 <div id="indexCard">
 <div id="indexCardTop">
   <%= sanitize @plotpoint.summary, :tags => ''%>

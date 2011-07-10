@@ -1,5 +1,7 @@
+<% if author_signed_in? && @story.author == current_author then %>
 <%= link_to 'Edit', edit_story_path(@story) %> |
 <%= link_to 'Delete', @story, :method=>:delete, :confirm=>'Are you sure?' %>
+<% end %>
 
 <div id="storyTitle">
   <%= @story.title %>

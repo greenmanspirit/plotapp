@@ -1,4 +1,6 @@
+<% if author_signed_in? && @story.author == current_author %>
 <%= link_to 'New Character', new_story_character_path(@story) %>
+<% end %>
 <div class="clear"></div>
 <% @characters.each do |character| %>
 <div class="author">
