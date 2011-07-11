@@ -29,4 +29,10 @@ class Author < ActiveRecord::Base
   def fave_stories
   	Storyfan.all(:conditions=>['author_id = ?', id])
   end
+  def inbox
+  	Message.all(:conditions=>['recipient_id = ?', id])
+ end
+ def outbox
+ 	Message.all(:conditions=>['sender_id = ?', id])
+end
 end

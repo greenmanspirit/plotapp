@@ -1,0 +1,31 @@
+<h1>Listing messages</h1>
+<% if @type == :inbox then %>
+<%= link_to 'Outbox', '?outbox=1' %>
+<% else %>
+<%= link_to 'Inbox', '?inbox=1' %>
+<% end %>
+<table>
+  <tr>
+    <th>Sender</th>
+    <th>Subject</th>
+	<th>Sent</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @messages.each do |message| %>
+  <tr>
+    <td><%= message.sender_id %></td>
+    <td><%= message.subject %></td>
+	<td><%= message.created_at.strftime('%d/%m/%y %H:%M') %></td>
+    <td><%= link_to 'Show', message %></td>
+    <td><%= link_to 'Edit', edit_message_path(message) %></td>
+    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Message', new_message_path %>

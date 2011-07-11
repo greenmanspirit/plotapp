@@ -1,4 +1,8 @@
 PlotApp::Application.routes.draw do
+  resources :messages
+
+  get "messages/new/:recipient_id", :to => "messages#new", :as => "send_new_message"
+
   devise_for :authors, :controllers => { :author => "author" } do
   	get "profile/:id", :to => "authors#profile", :as => "view_author_profile"
 	get "profile/fan/:id", :to => "authors#fan", :as => "fan_author"

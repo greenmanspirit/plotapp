@@ -32,7 +32,7 @@ Stories
 		<% end %>
 	</div>
 	<div id="messageButton">
-		<%= link_to "Message", "todo", :class=>'messageButton'%>
+		<%= link_to "Message", send_new_message_path(@author), :class=>'messageButton'%>
 	</div>
 <% end %>
 </div>
