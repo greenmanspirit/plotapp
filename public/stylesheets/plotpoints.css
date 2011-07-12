@@ -1,17 +1,11 @@
 #plotpoints {
-  width: 90%;
   margin: 0px;
   padding: 0px;
-  margin-left: auto;
-  margin-right: auto;
   list-style: none; }
 
 #indexCard {
-  margin-right: auto;
-  margin-left: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 70%;
   padding: 5px; }
 
 #indexCardTop {

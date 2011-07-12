@@ -1,18 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Josefin+Slab:300|Open+Sans:400,600,700&subset=latin&v2);
 #plotpoints {
-  width: 90%;
   margin: 0px;
   padding: 0px;
-  margin-left: auto;
-  margin-right: auto;
   list-style: none; }
 
 #indexCard {
-  margin-right: auto;
-  margin-left: auto;
   margin-top: 20px;
   margin-bottom: 20px;
-  width: 70%;
   padding: 5px; }
 
 #indexCardTop {
@@ -49,9 +43,6 @@
   text-align: right; }
 
 #storyTitle {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 2.5em;
   text-align: center; }
 
@@ -65,19 +56,10 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 80%;
   list-style: none; }
   #notebooks li {
     margin: 0;
     padding: 0; }
-
-.notebook {
-  float: left;
-  background-color: #ccc;
-  vertical-align: middle;
-  height: 15em;
-  width: 10em;
-  margin: 2em; }
 
 #profilePhoto {
   height: 200px;
@@ -88,7 +70,6 @@
   font-weight: 700; }
 
 #profile {
-  width: 80%;
   margin-left: auto;
   margin-right: auto;
   background-color: #fff; }
@@ -142,20 +123,14 @@
   overflow: auto; }
 
 #authorPublic, #authorPrivate {
-  width: 37.5%;
+  width: 45%;
   float: left; }
 
 #authorPublic {
-  margin-left: 10%;
   margin-right: 2.5%; }
 
 #authorPrivate {
-  margin-left: 2.5%;
-  margin-right: 10%; }
-
-#allPublic {
-  margin-left: 10%;
-  margin-right: 10%; }
+  margin-left: 2.5%; }
 
 .storyList {
   width: 100%; }
@@ -218,18 +193,16 @@
   padding: 0;
   margin: 0;
   margin-left: 2.5%;
-  margin-right: 5%;
   list-style: none;
-  width: 27.5%; }
+  width: 32.5%; }
 
 #settingSummary {
-  width: 56.5%;
+  width: 61.5%;
   float: left;
   background-color: #fff;
   padding: 0;
   margin: 0;
   margin-right: 2.5%;
-  margin-left: 5%;
   font-family: 'Josephin Slab', serif; }
 
 #settingIndexCardsWrap {
@@ -247,12 +220,6 @@
 
 #characterName {
   font-size: 2em; }
-
-#character {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fff; }
 
 .bold {
   font-weight: bold; }
@@ -338,7 +305,6 @@ table {
   display: inline; }
 
 #devisePage {
-  width: 80%;
   margin: 0;
   padding: 0;
   margin-left: auto;

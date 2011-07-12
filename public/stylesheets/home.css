@@ -2,20 +2,14 @@
   overflow: auto; }
 
 #authorPublic, #authorPrivate {
-  width: 37.5%;
+  width: 45%;
   float: left; }
 
 #authorPublic {
-  margin-left: 10%;
   margin-right: 2.5%; }
 
 #authorPrivate {
-  margin-left: 2.5%;
-  margin-right: 10%; }
-
-#allPublic {
-  margin-left: 10%;
-  margin-right: 10%; }
+  margin-left: 2.5%; }
 
 .storyList {
   width: 100%; }
