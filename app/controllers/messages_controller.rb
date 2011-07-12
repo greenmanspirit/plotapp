@@ -46,6 +46,11 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
 	@author = Author.find(params[:recipient_id])
+	if current_author == @author then
+		flash[:error] = 'Cannot send message to yourself'
+		redirect_to :root
+		return
+	end
 	add_breadcrumb @author.username, view_author_profile_path(@author)
 	add_breadcrumb 'Compose', ''
 	@message.recipient = @author
@@ -60,10 +65,10 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.xml
   def create
-    @message, @message2 = Message.new(params[:message]), Message.new(params[:message])
-	@message.owner_id = current_author.id
-	@message2.owner_id = params[:message][:recipient_id]
 	@author = Author.find(params[:message][:recipient_id])
+    @message, @message2 = Message.new(params[:message]), Message.new(params[:message])
+	@message.author = current_author
+	@message2.author = @author
 	add_breadcrumb @author.username, view_author_profile_path(@author)
 	add_breadcrumb 'Compose', ''
 

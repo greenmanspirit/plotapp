@@ -1,10 +1,17 @@
+<% if current_author != @message.sender then %>
 <div id="messageButton">
 	<%= link_to "Reply", send_new_message_path(@message.sender), :class=>'messageButton'%>
 </div>
+<% end %>
 <div class="clear"></div>
 <p>
+  <% if current_author == @message.recipient then %>
   <b>From:</b>
   <%= @message.sender.username %>
+  <% else %>
+  <b>To:</b>
+  <%= @message.recipient.username %>
+  <% end %>
 </p>
 
 <p>
