@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @topic.title %>
+</p>
+
+<% @topic.posts.each do |post| %>
+<table class="postList">
+<tr>
+<td class="author">
+  <% if post.author == nil then %>
+    User has left site
+  <% else %>
+    <%= link_to((image_tag post.author.photo.url(:thumb)), view_author_profile_path(post.author)) %><br/>
+    <%= link_to post.author.username, view_author_profile_path(post.author) %>
+  <% end %>
+</td>
+<td class="postText">
+  <%= post.text %>
+</td>
+</tr>
+</table>
+<% end %>
+
+<%= link_to 'Reply', new_topic_post_path(@topic) %>
+<%= link_to 'Edit', edit_topic_path(@topic) %> |

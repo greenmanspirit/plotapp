@@ -1,4 +1,10 @@
 PlotApp::Application.routes.draw do
+  resources :forums do 
+	resources :topics, :shallow => true do
+		resources :posts, :shallow => true
+	end
+  end
+
   resources :messages
 
   get "messages/new/:recipient_id", :to => "messages#new", :as => "send_new_message"

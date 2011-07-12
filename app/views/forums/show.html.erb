@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @forum.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @forum.description %>
+</p>
+
+<table class="topicList">
+<tr>
+  <th>Topic</th>
+  <th class="topicPostCount"># Posts</th>
+  <th class="topicPostAuthor">Last post</th>
+</tr>
+<% @forum.topics.each do |topic| %>
+    <% if current_author.topictracks.new_in_topic? topic, current_author then %>
+    <% classf = 'unread' %>
+    <% else %>
+    <% classf = 'read' %>
+    <% end %>
+    <tr class="<%= classf %>">
+	<td>
+		<%= link_to topic.title, topic %>
+	</td>
+	<td class="topicPostCount">
+		<%= topic.posts.count %>
+	</td>
+	<td class="topicPostAuthor">
+		<%= topic.posts.last.author.username %> <br/> <%= topic.posts.last.created_at.strftime('%d/%m/%y %H:%M') %>
+	</td>
+    </tr>
+<% end %>
+</table>
+
+<%= link_to 'New Topic', new_forum_topic_path(@forum) %>
+<%= link_to 'Edit', edit_forum_path(@forum) %> |
+<%= link_to 'Back', forums_path %>

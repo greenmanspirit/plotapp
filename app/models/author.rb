@@ -3,6 +3,8 @@ class Author < ActiveRecord::Base
   has_many :authorfans
   has_many :fans, :through => :authorfans
   has_many :messages, :dependent => :destroy
+  has_many :posts
+  has_many :topictracks
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

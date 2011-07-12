@@ -262,6 +262,45 @@
 #messages tr {
   border-bottom: 1px solid #000; }
 
+.forum {
+  border: 1px solid #000;
+  margin-bottom: 5px; }
+
+.topicCount {
+  text-align: center;
+  width: 1%; }
+
+.forumDesc {
+  font-size: .8em; }
+
+.topicPostDate {
+  width: 1%;
+  white-space: nowrap; }
+
+.topicPostAuthor {
+  width: 150px;
+  white-space: nowrap;
+  font-size: .8em;
+  text-align: right; }
+
+.topicPostCount {
+  width: 1%;
+  white-space: nowrap;
+  text-align: right; }
+
+.postList {
+  border: 1px solid black;
+  margin-bottom: 5px; }
+  .postList td {
+    border: 1px solid black; }
+  .postList .author {
+    border: none;
+    margin: 0; }
+
+.postText {
+  vertical-align: top;
+  width: 100%; }
+
 body {
   background-color: #EAF7FB;
   font-size: 15px;

@@ -1,0 +1,26 @@
+<table class="topicList">
+
+<% @forums.each do |forum| %>
+  <tr>
+  <table class="forum">
+    <% if current_author.topictracks.new_in_forum? forum, current_author then %>
+    <% classf = 'unread' %>
+    <% else %>
+    <% classf = 'read' %>
+    <% end %>
+    <tr class="<%= classf %>" >
+      <td><%= link_to forum.title, forum %></td>
+      <td class="topicCount"><%= forum.topics.count %></td>
+    </tr>
+    <tr class="<%= classf %>" >
+      <td class="forumDesc"><%= forum.description %></td>
+      <td class="topicCount forumDesc">Topics</td>
+    </tr>
+  </table>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Forum', new_forum_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712042931) do
+ActiveRecord::Schema.define(:version => 20110712151421) do
 
   create_table "authorfans", :force => true do |t|
     t.integer  "author_id"
@@ -78,6 +78,13 @@ ActiveRecord::Schema.define(:version => 20110712042931) do
     t.string   "summary"
   end
 
+  create_table "forums", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "habits", :force => true do |t|
     t.string   "detail"
     t.integer  "character_id"
@@ -112,6 +119,14 @@ ActiveRecord::Schema.define(:version => 20110712042931) do
     t.integer  "position"
   end
 
+  create_table "posts", :force => true do |t|
+    t.text     "text"
+    t.integer  "topic_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "settings", :force => true do |t|
     t.text     "summary"
     t.integer  "story_id"
@@ -130,6 +145,23 @@ ActiveRecord::Schema.define(:version => 20110712042931) do
   create_table "storyfans", :force => true do |t|
     t.integer  "author_id"
     t.integer  "story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "topics", :force => true do |t|
+    t.string   "title"
+    t.integer  "forum_id"
+    t.integer  "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_post_date"
+  end
+
+  create_table "topictracks", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "topic_id"
+    t.datetime "last_time_viewed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
