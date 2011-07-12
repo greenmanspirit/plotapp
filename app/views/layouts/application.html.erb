@@ -12,9 +12,10 @@
 <% if author_signed_in? then %>
 <%= link_to 'Sign Out', destroy_author_session_path, :class => 'userControlLink' %>
 <%= link_to 'Edit', edit_author_registration_path, :class => 'userControlLink' %>
+<%= link_to 'Messages', messages_path, :class => 'userControlLink' %>
 <% else %>
-<%= link_to 'Register', new_author_registration_path, :class => 'userControlLink'%>
 <%= link_to 'Sign In', new_author_session_path, :class => 'userControlLink' %>
+<%= link_to 'Register', new_author_registration_path, :class => 'userControlLink'%>
 <% end %>
 <%= link_to 'Stories', stories_path, :class => 'userControlLink' %>
 <%= link_to 'Authors', authors_path, :class => 'userControlLink' %>

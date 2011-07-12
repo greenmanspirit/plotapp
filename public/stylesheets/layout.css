@@ -269,6 +269,32 @@
   padding: 0;
   margin: 0; }
 
+.username {
+  width: 200px; }
+
+.subject a, .username a, .delete a {
+  text-decoration: none;
+  color: #000; }
+  .subject a:hover, .username a:hover, .delete a:hover {
+    color: blue; }
+
+.date {
+  width: 1%;
+  padding-left: 1px;
+  padding-right: 1px;
+  white-space: nowrap; }
+
+.delete {
+  width: 1%;
+  padding-left: 1px;
+  padding-right: 2px; }
+
+.unread {
+  background-color: #addee8; }
+
+#messages tr {
+  border-bottom: 1px solid #000; }
+
 body {
   background-color: #EAF7FB;
   font-size: 15px;
@@ -297,6 +323,9 @@ table {
 .width85 {
   width: 85%; }
 
+.serif {
+  font-family: 'Josephin Slab', serif; }
+
 .fanButton {
   text-decoration: none;
   color: #000;
@@ -319,6 +348,7 @@ table {
   margin: 0;
   padding: 0;
   width: 80%;
+  min-width: 800px;
   margin-left: auto;
   margin-right: auto; }
 
@@ -329,8 +359,10 @@ table {
   -webkit-box-shadow: 0 0 10px #999999;
   overflow: auto;
   margin-top: 1em;
-  padding: 5px;
-  padding-bottom: 5%; }
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  padding-left: 5%;
+  padding-right: 5%; }
 
 #legal {
   width: 20em;

@@ -1,0 +1,25 @@
+.username {
+  width: 200px; }
+
+.subject a, .username a, .delete a {
+  text-decoration: none;
+  color: #000; }
+  .subject a:hover, .username a:hover, .delete a:hover {
+    color: blue; }
+
+.date {
+  width: 1%;
+  padding-left: 1px;
+  padding-right: 1px;
+  white-space: nowrap; }
+
+.delete {
+  width: 1%;
+  padding-left: 1px;
+  padding-right: 2px; }
+
+.unread {
+  background-color: #addee8; }
+
+#messages tr {
+  border-bottom: 1px solid #000; }

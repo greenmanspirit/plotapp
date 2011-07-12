@@ -1,13 +1,10 @@
-<p id="notice"><%= notice %></p>
-
+<div id="messageButton">
+	<%= link_to "Reply", send_new_message_path(@message.sender), :class=>'messageButton'%>
+</div>
+<div class="clear"></div>
 <p>
-  <b>Sender:</b>
-  <%= @message.sender_id %>
-</p>
-
-<p>
-  <b>Recipient:</b>
-  <%= @message.recipient_id %>
+  <b>From:</b>
+  <%= @message.sender.username %>
 </p>
 
 <p>
@@ -15,16 +12,6 @@
   <%= @message.subject %>
 </p>
 
-<p>
-  <b>Body:</b>
+<p class="serif">
   <%= @message.body %>
 </p>
-
-<p>
-  <b>Read:</b>
-  <%= @message.read %>
-</p>
-
-
-<%= link_to 'Edit', edit_message_path(@message) %> |
-<%= link_to 'Back', messages_path %>

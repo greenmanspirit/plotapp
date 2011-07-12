@@ -2,6 +2,7 @@ class Author < ActiveRecord::Base
   has_many :stories, :dependent => :destroy
   has_many :authorfans
   has_many :fans, :through => :authorfans
+  has_many :messages, :dependent => :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -29,10 +30,4 @@ class Author < ActiveRecord::Base
   def fave_stories
   	Storyfan.all(:conditions=>['author_id = ?', id])
   end
-  def inbox
-  	Message.all(:conditions=>['recipient_id = ?', id])
- end
- def outbox
- 	Message.all(:conditions=>['sender_id = ?', id])
-end
 end

@@ -17,6 +17,7 @@
 @import "home.scss";
 @import "setting.scss";
 @import "character.scss";
+@import "messages.scss";
 
 body{
 	background-color:	#EAF7FB;
@@ -48,6 +49,9 @@ table{
 .width85{
 	width:	85%;
 }
+.serif{
+	font-family: 		'Josephin Slab', serif;
+}
 .fanButton{
 	text-decoration:	none;
 	color:				#000;
@@ -70,6 +74,7 @@ table{
 	margin:				0;
 	padding:			0;
 	width:				80%;
+	min-width:			800px;
 	margin-left:		auto;
 	margin-right:		auto;
 }
@@ -79,8 +84,10 @@ table{
 	@include box-shadow(0, 0, 10px, #999);
 	overflow:			auto;
 	margin-top:			1em;
-	padding:			5px;
-	padding-bottom:		5%;
+	padding-top:		2.5%;
+	padding-bottom:		2.5%;
+	padding-left:		5%;
+	padding-right:		5%;
 }
 
 #legal{

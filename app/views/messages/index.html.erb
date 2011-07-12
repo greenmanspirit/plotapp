@@ -1,31 +1,25 @@
-<h1>Listing messages</h1>
 <% if @type == :inbox then %>
 <%= link_to 'Outbox', '?outbox=1' %>
 <% else %>
 <%= link_to 'Inbox', '?inbox=1' %>
 <% end %>
-<table>
+<table id="messages">
   <tr>
-    <th>Sender</th>
+    <th class="username">From</th>
     <th>Subject</th>
 	<th>Sent</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <% @messages.each do |message| %>
-  <tr>
-    <td><%= message.sender_id %></td>
-    <td><%= message.subject %></td>
-	<td><%= message.created_at.strftime('%d/%m/%y %H:%M') %></td>
-    <td><%= link_to 'Show', message %></td>
-    <td><%= link_to 'Edit', edit_message_path(message) %></td>
-    <td><%= link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %></td>
+  <tr class="<%= message.read ? 'read' : 'unread' %>">
+    <td class="username"><%= link_to message.sender.username, view_author_profile_path(message.sender) %></td>
+    <td class="subject"><%= link_to message.subject, message %></td>
+	<td class="date"><%= message.created_at.strftime('%d/%m/%y %H:%M') %></td>
+    <td class="delete"><%= link_to 'Delete', message, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Message', new_message_path %>
