@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
 			object = object.parent(object)
 		end
 		if object != current_author then
-			flash[:error] = "you don't have permission to do that"
-			redirect_to(:back)
+			flash[:error] = "You don't have permission to do that."
+			redirect_to(:root)
 		end
 	end
   add_breadcrumb 'Home', '/'
