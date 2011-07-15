@@ -1,4 +1,4 @@
-<% if author_signed_in? && @feature.setting.story.author == current_author %>
+<% if can? :manage, @feature then %>
 <%= link_to 'Edit', edit_feature_path(@feature) %> |
 <%= link_to 'Delete', @feature, :method=>:delete, :confirm=>'Are you sure?' %>
 <% end %>

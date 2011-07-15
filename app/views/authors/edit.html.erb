@@ -1,8 +1,18 @@
 <div id="devisePage">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit Author</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true}) do |f| %>
-  <%= devise_error_messages! %>
+<%= form_for @author, :html => { :method => :put, :multipart => true} do |f| %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+      <ul>
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <p><%= f.label :username %> <br />
   <%= f.text_field :username %></p>
@@ -22,7 +32,7 @@
   <p><%= f.label :photo %><br />
   <%= f.file_field :photo %></p>
 
-  <% if @author.roles? :admin then %>
+  <% if can? :update, Author then %>
   <p>
     <%= f.label :roles %><br />
     <% for role in Author::ROLES %>
@@ -39,6 +49,6 @@
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+<p>Unhappy? <%= link_to "Delete", @author, :confirm => "Are you sure?", :method => :delete %>.</p>
 
 </div>

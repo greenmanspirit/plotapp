@@ -1,5 +1,7 @@
-<% if author_signed_in? && @setting.story.author == current_author %>
+<% if can? :manage, @setting then %>
 <%= link_to 'Edit Setting Overview', edit_setting_path(@setting) %> | 
+<% end %>
+<% if can? :create, @setting.features.new then %>
 <%= link_to 'New Feature', new_setting_feature_path(@setting) %>
 <% end %>
 <div class="clear"></div>

@@ -1,11 +1,7 @@
 class MessagesController < ApplicationController
   before_filter :authenticate_author!
-	before_filter :only => [:show, :destroy] do |controller|
-		permission(Message.find(controller.params[:id]))
-	end
-	before_filter :only => [:new, :create] do |controller|
-		permission(current_author)
-	end
+  load_and_authorize_resource
+
   # GET /messages
   # GET /messages.xml
   def index
@@ -28,7 +24,6 @@ class MessagesController < ApplicationController
   # GET /messages/1.xml
   def show
   	add_breadcrumb "Messages", :back
-    @message = Message.find(params[:id])
 	if @message.read == false then
 		@message.read = true;
 		@message.save
@@ -44,7 +39,6 @@ class MessagesController < ApplicationController
   # GET /messages/new
   # GET /messages/new.xml
   def new
-    @message = Message.new
 	@author = Author.find(params[:recipient_id])
 	if current_author == @author then
 		flash[:error] = 'Cannot send message to yourself'
@@ -66,7 +60,7 @@ class MessagesController < ApplicationController
   # POST /messages.xml
   def create
 	@author = Author.find(params[:message][:recipient_id])
-    @message, @message2 = Message.new(params[:message]), Message.new(params[:message])
+    @message2 = @message.clone
 	@message.author = current_author
 	@message2.author = @author
 	add_breadcrumb @author.username, view_author_profile_path(@author)
@@ -86,7 +80,6 @@ class MessagesController < ApplicationController
   # DELETE /messages/1
   # DELETE /messages/1.xml
   def destroy
-    @message = Message.find(params[:id])
     @message.destroy
 
     respond_to do |format|

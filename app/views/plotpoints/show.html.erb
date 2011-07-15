@@ -1,4 +1,4 @@
-<% if author_signed_in? && @plotpoint.story.author == current_author %>
+<% if can? :update, @plotpoint then  %>
 <%= link_to 'Edit', edit_plotpoint_path(@plotpoint) %>
 <% end %>
 <div id="indexCard">

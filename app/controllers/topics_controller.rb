@@ -1,14 +1,7 @@
 class TopicsController < ApplicationController
-  # GET /topics
-  # GET /topics.xml
-  def index
-    @topics = Topic.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @topics }
-    end
-  end
+  before_filter :authenticate_author!, :except => [:index, :show] 
+  load_and_authorize_resource :forum
+  load_and_authorize_resource :topic, :through => :forum, :shallow => true
 
   # GET /topics/1
   # GET /topics/1.xml
@@ -54,6 +47,7 @@ class TopicsController < ApplicationController
   def create
 	@forum = Forum.find(params[:forum_id])
     @topic = @forum.topics.new(params[:topic])
+	@topic.author_id = current_author.id
     @topic.last_post_date = Time.now
     @topic.save
     tt = current_author.topictracks.new
@@ -92,9 +86,10 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy
+	forum = @topic.forum
 
     respond_to do |format|
-      format.html { redirect_to(topics_url) }
+      format.html { redirect_to(forum) }
       format.xml  { head :ok }
     end
   end

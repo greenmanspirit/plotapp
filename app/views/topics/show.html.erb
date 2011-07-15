@@ -1,3 +1,12 @@
+<% if can? :create, Post then %>
+<%= link_to 'Reply', new_topic_post_path(@topic) %>
+<% end %>
+<% if can? :update, @topic then %>
+<%= link_to 'Edit', edit_topic_path(@topic) %>
+<% end %>
+<% if can? :manage, Topic then %>
+<%= link_to 'Delete', @topic, :method=>:delete, :confirm=>'Are you sure?' %>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,5 +31,6 @@
 </table>
 <% end %>
 
+<% if can? :create, Post then %>
 <%= link_to 'Reply', new_topic_post_path(@topic) %>
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<% end %>

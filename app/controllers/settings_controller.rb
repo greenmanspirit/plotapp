@@ -1,15 +1,11 @@
 class SettingsController < ApplicationController
   before_filter :authenticate_author!, :except => [:show]
-	before_filter :only => [:edit, :update] do |controller|
-		permission(Setting.find(controller.params[:id]))
-	end
-	before_filter :only => [:new, :create] do |controller|
-		permission(Story.find(controller.params[:story_id]))
-	end
+  load_and_authorize_resource :story
+  load_and_authorize_resource :setting, :through => :story, :singleton => true, :shallow => true
+
   # GET /settings/1
   # GET /settings/1.xml
   def show
-    @setting = Setting.find(params[:id])
 	@features = Kaminari.paginate_array(@setting.features).page(params[:page]).per(15)
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @setting.story.title, @setting.story
@@ -25,8 +21,6 @@ class SettingsController < ApplicationController
   # GET /settings/new
   # GET /settings/new.xml
   def new
-  	@story = Story.find(params[:story_id])
-    @setting = Setting.new
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @story.title, @story
 	add_breadcrumb 'Create new setting', ''
@@ -39,7 +33,6 @@ class SettingsController < ApplicationController
 
   # GET /settings/1/edit
   def edit
-    @setting = Setting.find(params[:id])
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @setting.story.title, @setting.story
 	add_breadcrumb 'Edit setting', ''
@@ -48,8 +41,6 @@ class SettingsController < ApplicationController
   # POST /settings
   # POST /settings.xml
   def create
-  	@story = Story.find(params[:story_id])
-    @setting = Setting.new(params[:setting])	
 	@setting.story = @story
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @story.title, @story
@@ -69,7 +60,6 @@ class SettingsController < ApplicationController
   # PUT /settings/1
   # PUT /settings/1.xml
   def update
-    @setting = Setting.find(params[:id])
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @setting.story.title, @setting.story
 	add_breadcrumb 'Edit setting', ''

@@ -1,16 +1,11 @@
 class PlotpointsController < ApplicationController
 	before_filter :authenticate_author!, :except => [:index, :show]
-	before_filter :only => [:edit, :update, :destroy] do |controller|
-		permission(Plotpoint.find(controller.params[:id]))
-	end
-	before_filter :only => [:new, :create, :sort] do |controller|
-		permission(Story.find(controller.params[:story_id]))
-	end
-	#permission Story.find(controller.params[:story_id]), :only => [:new, :create]
+  load_and_authorize_resource :story
+  load_and_authorize_resource :plotpoint, :through => :story, :shallow => true
+
   # GET /plotpoints
   # GET /plotpoints.xml
   def index
-  	@story = Story.find(params["story_id"])
     @plotpoints = @story.plotpoints.all(:order => "position")
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @story.title, @story
@@ -25,7 +20,6 @@ class PlotpointsController < ApplicationController
   # GET /plotpoints/1
   # GET /plotpoints/1.xml
   def show
-    @plotpoint = Plotpoint.find(params[:id])
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @plotpoint.story.title, @plotpoint.story
 	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
@@ -40,8 +34,6 @@ class PlotpointsController < ApplicationController
   # GET /plotpoints/new
   # GET /plotpoints/new.xml
   def new
-  	@story = Story.find(params[:story_id])
-    @plotpoint = Plotpoint.new
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @story.title, @story
 	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
@@ -55,7 +47,6 @@ class PlotpointsController < ApplicationController
 
   # GET /plotpoints/1/edit
   def edit
-    @plotpoint = Plotpoint.find(params[:id])
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @plotpoint.story.title, @plotpoint.story
 	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
@@ -66,8 +57,6 @@ class PlotpointsController < ApplicationController
   # POST /plotpoints
   # POST /plotpoints.xml
   def create
-  	@story = Story.find(params[:story_id])
-    @plotpoint = @story.plotpoints.new(params[:plotpoint])
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @plotpoint.story.title, @plotpoint.story
 	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
@@ -87,7 +76,6 @@ class PlotpointsController < ApplicationController
   # PUT /plotpoints/1
   # PUT /plotpoints/1.xml
   def update
-    @plotpoint = Plotpoint.find(params[:id])
 	add_breadcrumb 'Stories', stories_path
 	add_breadcrumb @plotpoint.story.title, @plotpoint.story
 	add_breadcrumb 'Plot Designer', story_plotpoints_path(@plotpoint.story)
@@ -107,7 +95,6 @@ class PlotpointsController < ApplicationController
   # DELETE /plotpoints/1
   # DELETE /plotpoints/1.xml
   def destroy
-    @plotpoint = Plotpoint.find(params[:id])
 	@story = @plotpoint.story;
     @plotpoint.destroy
 

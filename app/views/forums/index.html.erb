@@ -1,3 +1,7 @@
+<% if can? :create, Forum then %>
+<br/>
+<%= link_to 'New Forum', new_forum_path %>
+<% end %>
 <table class="topicList">
 
 <% @forums.each do |forum| %>
@@ -21,6 +25,3 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Forum', new_forum_path %>

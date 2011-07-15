@@ -20,7 +20,7 @@
 		</div>
 		<div class="settingIndexCardLinks">
 			<%= link_to 'view', feature %>
-			<% if author_signed_in? && @setting.story.author == current_author %>
+			<% if can? :manage, feature then %>
 				<%= link_to 'edit', edit_feature_path(feature) %>
 				<%= link_to 'delete', feature, :confirm => 'Are you sure?', :method => :delete %>
 			<% end %>

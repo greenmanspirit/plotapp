@@ -2,12 +2,8 @@ class StoriesController < ApplicationController
   add_breadcrumb 'Create new story', '', :only => [:new, :create]
   add_breadcrumb 'Edit Story', '', :only => [:edit, :update]
   before_filter :authenticate_author!, :except => [:index, :show]
-	before_filter :only => [:edit, :update, :destroy] do |controller|
-		permission(Story.find(controller.params[:id]))
-	end
-	before_filter :only => [:new, :create] do |controller|
-		permission(current_author)
-	end
+  load_and_authorize_resource
+
   # GET /stories
   # GET /stories.xml
   def index
@@ -23,7 +19,6 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.xml
   def show
-    @story = Story.find(params[:id])
 	add_breadcrumb 'Stories', stories_path()
 	add_breadcrumb @story.title, ''
 
@@ -36,8 +31,6 @@ class StoriesController < ApplicationController
   # GET /stories/new
   # GET /stories/new.xml
   def new
-    @story = Story.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @story }
@@ -46,13 +39,12 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
-    @story = Story.find(params[:id])
   end
 
   # POST /stories
   # POST /stories.xml
   def create
-    @story = current_author.stories.new(params[:story])
+	@story.author = current_author
 
     respond_to do |format|
       if @story.save
@@ -68,7 +60,6 @@ class StoriesController < ApplicationController
   # PUT /stories/1
   # PUT /stories/1.xml
   def update
-    @story = Story.find(params[:id])
 
     respond_to do |format|
       if @story.update_attributes(params[:story])
@@ -84,11 +75,10 @@ class StoriesController < ApplicationController
   # DELETE /stories/1
   # DELETE /stories/1.xml
   def destroy
-    @story = Story.find(params[:id])
     @story.destroy
 
     respond_to do |format|
-      format.html { redirect_to(stories_url) }
+      format.html { redirect_to(:root) }
       format.xml  { head :ok }
     end
   end

@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @forum.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @forum.description %>
-</p>
+<table class="forum">
+  <tr>
+    <td><%= @forum.title %></td>
+    <td class="topicCount"><%= @forum.topics.count %></td>
+  </tr>
+  <tr>
+    <td class="forumDesc"><%= @forum.description %></td>
+    <td class="topicCount forumDesc">Topics</td>
+  </tr>
+</table>
+<% if can? :create, Topic then %>
+<%= link_to 'New Topic', new_forum_topic_path(@forum) %>
+<% end %>
+<% if can? :manage, @forum then %>
+<%= link_to 'Edit', edit_forum_path(@forum) %>
+<% end %>
 
 <table class="topicList">
 <tr>
@@ -36,6 +43,3 @@
 <% end %>
 </table>
 
-<%= link_to 'New Topic', new_forum_topic_path(@forum) %>
-<%= link_to 'Edit', edit_forum_path(@forum) %> |
-<%= link_to 'Back', forums_path %>

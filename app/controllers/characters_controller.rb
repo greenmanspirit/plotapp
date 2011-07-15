@@ -1,16 +1,13 @@
 class CharactersController < ApplicationController
 	before_filter :authenticate_author!, :except => [:index, :show]
-	before_filter :only => [:edit, :update, :destroy] do |controller|
-		permission(Character.find(controller.params[:id]))
-	end
-	before_filter :only => [:new, :create] do |controller|
-		permission(Story.find(controller.params[:story_id]))
-	end
+	load_and_authorize_resource :story
+	load_and_authorize_resource :character, :through => :story, :shallow => true
+
   # GET /characters
   # GET /characters.xml
   def index
-	@story = Story.find(params[:story_id])
-    @characters = Character.all
+    @characters = @story.characters
+
   	add_breadcrumb "Stories", stories_path
 	add_breadcrumb @story.title, @story
 	add_breadcrumb "Characters", ''
@@ -24,7 +21,6 @@ class CharactersController < ApplicationController
   # GET /characters/1
   # GET /characters/1.xml
   def show
-    @character = Character.find(params[:id])
   	add_breadcrumb "Stories", stories_path
 	add_breadcrumb @character.story.title, @character.story
 	add_breadcrumb "Characters", story_characters_path(@character.story)
@@ -39,8 +35,6 @@ class CharactersController < ApplicationController
   # GET /characters/new
   # GET /characters/new.xml
   def new
-  	@story = Story.find(params[:story_id])
-    @character = @story.characters.new
   	add_breadcrumb "Stories", stories_path
 	add_breadcrumb @story.title, @story
 	add_breadcrumb "Characters", story_characters_path(@story)
@@ -54,7 +48,6 @@ class CharactersController < ApplicationController
 
   # GET /characters/1/edit
   def edit
-    @character = Character.find(params[:id])
   	add_breadcrumb "Stories", stories_path
 	add_breadcrumb @character.story.title, @character.story
 	add_breadcrumb "Characters", story_characters_path(@character.story)
@@ -65,8 +58,6 @@ class CharactersController < ApplicationController
   # POST /characters
   # POST /characters.xml
   def create
-  	@story = Story.find(params[:story_id])
-    @character = @story.characters.new(params[:character])
   	add_breadcrumb "Stories", stories_path
 	add_breadcrumb @story.title, @story
 	add_breadcrumb "Characters", story_characters_path(@story)
@@ -86,7 +77,6 @@ class CharactersController < ApplicationController
   # PUT /characters/1
   # PUT /characters/1.xml
   def update
-    @character = Character.find(params[:id])
   	add_breadcrumb "Stories", stories_path
 	add_breadcrumb @character.story.title, @character.story
 	add_breadcrumb "Characters", story_characters_path(@character.story)
@@ -107,7 +97,6 @@ class CharactersController < ApplicationController
   # DELETE /characters/1
   # DELETE /characters/1.xml
   def destroy
-    @character = Character.find(params[:id])
 	@story = @character.story
     @character.destroy
 

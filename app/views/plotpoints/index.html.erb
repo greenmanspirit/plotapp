@@ -1,4 +1,4 @@
-<% if author_signed_in? && @story.author == current_author %>
+<% if can? :create, @story.plotpoints.new then %>
 <%= link_to 'New Plot Point', new_story_plotpoint_path(@story) %>
 <% end %>
 <ul id="plotpoints" >
@@ -12,7 +12,7 @@
 	</div>
 	<div class="smallIndexCardLinks">
 		<%= link_to 'view', point %>
-		<% if author_signed_in? && @story.author == current_author %>
+		<% if can? :manage, point then %>
 			<%= link_to 'edit', edit_plotpoint_path(point) %>
 			<%= link_to 'delete', point, :confirm => 'Are you sure?', :method => :delete %>
 		<% end %>

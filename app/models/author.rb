@@ -12,7 +12,7 @@ class Author < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :bio, :photo
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :bio, :photo, :roles
 
   has_attached_file :photo, :default_url => "/images/:style/missing.png",
 			    :styles => {:profile => "200x200>", :thumb => "150x150>"}
@@ -22,10 +22,27 @@ class Author < ActiveRecord::Base
   validates_length_of :username, :within => 6..16
   validates_uniqueness_of :username, :id
 
+  scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
+  
+  ROLES = %w[admin moderator author]
+	  
+  def roles=(roles)
+    self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum
+  end
+			    
+  def roles
+    ROLES.reject { |r| ((roles_mask || 0) & 2**ROLES.index(r)).zero? }
+  end
+
+  def roles?(role)
+  	roles.include? role.to_s
+  end
+
   def update_with_password(params={})
   	params.delete(:current_password)
 	self.update_without_password(params)
   end
+
   def fave_authors
   	Authorfan.all(:conditions=>['fan_id = ?', id])
   end

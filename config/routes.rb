@@ -9,12 +9,14 @@ PlotApp::Application.routes.draw do
 
   get "messages/new/:recipient_id", :to => "messages#new", :as => "send_new_message"
 
-  devise_for :authors, :controllers => { :author => "author" } do
+  devise_for :authors, :controllers => { :registrations => "registrations" } do
   	get "profile/:id", :to => "authors#profile", :as => "view_author_profile"
 	get "profile/fan/:id", :to => "authors#fan", :as => "fan_author"
 	get "profile/defan/:id", :to => "authors#defan", :as => "defan_author"
 	get "authors", :to => "authors#index", :as => "authors"
   end
+
+  resources :authors
 
   resources :stories do
   	resources :plotpoints, :shallow => true do 

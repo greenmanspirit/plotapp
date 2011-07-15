@@ -1,5 +1,7 @@
-<% if author_signed_in? && @story.author == current_author then %>
-<%= link_to 'Edit', edit_story_path(@story) %> |
+<% if can? :update, @story then %>
+<%= link_to 'Edit', edit_story_path(@story) %>
+<% end %>
+<% if can? :destroy, @story then %>
 <%= link_to 'Delete', @story, :method=>:delete, :confirm=>'Are you sure?' %>
 <% end %>
 
@@ -14,7 +16,7 @@
 		Fans
 	<% end %>
 </p>
-<% if author_signed_in? && @story.author != current_author then %>
+<% if can? :fan, @story then %>
 	<div id="fanButton">
 		<% if @story.fans.index(current_author) == nil then %>
 			<%= link_to 'Fave', story_fan_path(@story), :class=>'fanButton', :remote=>true%>

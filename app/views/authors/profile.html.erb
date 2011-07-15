@@ -23,7 +23,7 @@ Stories
 	<% end %>
 </p>
 <div id="profileLinks">
-<% if author_signed_in? && @author != current_author then %>
+<% if can? :fan, @author then %>
 	<div id="fanButton">
 		<% if @author.fans.index(current_author) == nil then %>
 			<%= link_to 'Fave', fan_author_path(@author), :class=>'fanButton', :remote=>true%>
@@ -34,6 +34,9 @@ Stories
 	<div id="messageButton">
 		<%= link_to "Message", send_new_message_path(@author), :class=>'messageButton'%>
 	</div>
+	<% if can? :update, @author then %>
+		<%= link_to 'Edit', edit_author_path(@author) %>
+	<% end %>
 <% end %>
 </div>
 </td>

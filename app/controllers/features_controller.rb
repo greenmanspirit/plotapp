@@ -1,13 +1,9 @@
 class FeaturesController < ApplicationController
 	before_filter :authenticate_author!, :except => [:show]
-	before_filter :only => [:edit, :update, :destroy] do |controller|
-		permission(Feature.find(controller.params[:id]))
-	end
-	before_filter :only => [:new, :create] do |controller|
-		permission(Setting.find(controller.params[:setting_id]))
-	end
+	load_and_authorize_resource :setting
+	load_and_authorize_resource :feature, :through => :setting, :shallow => true
+
 	def show
-		@feature = Feature.find(params[:id])
 		add_breadcrumb 'Stories', stories_path
 		add_breadcrumb @feature.setting.story.title, @feature.setting.story
 		add_breadcrumb 'Setting', @feature.setting
@@ -15,8 +11,6 @@ class FeaturesController < ApplicationController
 	end
 	
 	def new
-		@setting = Setting.find(params[:setting_id])
-		@feature = @setting.features.new
 		add_breadcrumb 'Stories', stories_path
 		add_breadcrumb @setting.story.title, @setting.story
 		add_breadcrumb 'Setting', @setting
@@ -24,7 +18,6 @@ class FeaturesController < ApplicationController
 	end
 	
 	def edit
-		@feature = Feature.find(params[:id])
 		add_breadcrumb 'Stories', stories_path
 		add_breadcrumb @feature.setting.story.title, @feature.setting.story
 		add_breadcrumb 'Setting', @feature.setting
@@ -33,8 +26,6 @@ class FeaturesController < ApplicationController
 	end
 
 	def create	
-  		@setting = Setting.find(params[:setting_id])
-    	@feature = @setting.features.new(params[:feature])
 		add_breadcrumb 'Stories', stories_path
 		add_breadcrumb @setting.story.title, @setting.story
 		add_breadcrumb 'Setting', @setting
@@ -50,7 +41,6 @@ class FeaturesController < ApplicationController
 	end 
 
 	def update
-		@feature = Feature.find(params[:id])
 		add_breadcrumb 'Stories', stories_path
 		add_breadcrumb @feature.setting.story.title, @feature.setting.story
 		add_breadcrumb 'Setting', @feature.setting
@@ -67,7 +57,6 @@ class FeaturesController < ApplicationController
     end
 	
 	def destroy
-		@feature = Feature.find(params[:id])
 		@setting = @feature.setting
 		@feature.destroy
 
